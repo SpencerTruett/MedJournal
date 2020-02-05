@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 export const BloodPressureContext = React.createContext()
 
 export const BloodPressureProvider = (props) => {
-    const [BP, setBP] = useState([])
+    const [BPs, setBP] = useState([])
 
     const getBP = () => {
         return fetch("http://localhost:8088/bloodPressure?_expand=user")
@@ -46,12 +46,12 @@ export const BloodPressureProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log(BP)
-    }, [BP])
+        console.log(BPs)
+    }, [BPs])
 
     return (
         <BloodPressureContext.Provider value={{
-            BP, addBP, deleteBP, updateBP
+            BPs, addBP, deleteBP, updateBP
         }}>
             {props.children}
         </BloodPressureContext.Provider>
