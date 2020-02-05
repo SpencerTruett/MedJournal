@@ -1,4 +1,5 @@
 import React, { useRef } from "react"
+import { Link } from "react-router-dom";
 // import "./Login.css"
 
 const Register = props => {
@@ -53,7 +54,7 @@ const Register = props => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register to be a Conspiring Lemur</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register to join MedJournal</h1>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text"
@@ -100,6 +101,9 @@ const Register = props => {
                     </button>
                 </fieldset>
             </form>
+            <section className="link--login">
+                <Link to="/login">Back to login</Link>
+            </section>
         </main>
     )
 }
