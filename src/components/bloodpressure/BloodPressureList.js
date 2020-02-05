@@ -4,7 +4,7 @@ import { BloodPressureContext } from "./BloodPressureProvider"
 import BloodPressure from "./BloodPressure"
 
 export default (props) => {
-    const { BP } = useContext(BloodPressureContext)
+    const { BPs } = useContext(BloodPressureContext)
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
 
@@ -16,7 +16,7 @@ export default (props) => {
             </div>    
             <div className="BloodPressureReadings">
                 {
-                    BP.map(BP => {
+                    BPs.map(BP => {
                         return <BloodPressure key={BP.id} BP={BP} {...props} />
                     })
                 }

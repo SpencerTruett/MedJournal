@@ -6,7 +6,7 @@ export default (props) => {
     var className = isActive ? 'active' : '';
 
         return(
-            <Link className={`${className} navbar__link`} {...props}>
+            <Link className={`${className} navbar__link`} history={props.history} to={props.to}>
                 {props.children}
             </Link>
         );

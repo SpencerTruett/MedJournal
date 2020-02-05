@@ -2,13 +2,14 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { BloodPressureProvider } from "./bloodpressure/BloodPressureProvider";
 import BloodPressureList from "./bloodpressure/BloodPressureList";
+import BloodPressureForm from "./bloodpressure/BloodPressureForm";
 
 
 export default (props) => {
   return (
       <>
         <BloodPressureProvider>
-        <Route exact path= "/" ><div className="pageButtons">
+          <Route exact path= "/" ><div className="pageButtons">
           <div>
               <button onClick={() => props.history.push("/bloodPressure")}>
                   Blood Pressure
@@ -37,9 +38,13 @@ export default (props) => {
           </div>    
         </div>
         </Route>
-                <Route exact path="/bloodPressure"
-                  render={props => <BloodPressureList{...props} />}
-                />
+          
+            <Route exact path="/bloodPressure"
+              render={props => <BloodPressureForm{...props} />}
+            />
+            <Route exact path="/bloodPressure"
+              render={props => <BloodPressureList{...props} />}
+            />
         </BloodPressureProvider>
       </>
   );
