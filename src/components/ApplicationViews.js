@@ -1,9 +1,11 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { BloodPressureProvider } from "./bloodpressure/BloodPressureProvider";
 
 export default (props) => {
   return (
       <>
+        <BloodPressureProvider>
         <div className="pageButtons">
           <div>
               <button onClick={() => props.history.push("/bloodPressure")}>
@@ -32,6 +34,7 @@ export default (props) => {
               
           </div>    
         </div>
+        </BloodPressureProvider>
       </>
   );
 }
