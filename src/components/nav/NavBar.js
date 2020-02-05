@@ -8,7 +8,7 @@ export default (props) => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                <NavLink to="/news" {...props}>Profile</NavLink> 
+                <NavLink to="/profile" {...props}>Profile</NavLink> 
             </li>
 
             <li className="navbar__item">
