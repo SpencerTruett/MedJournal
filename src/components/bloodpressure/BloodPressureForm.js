@@ -3,14 +3,17 @@ import { BloodPressureContext } from "./BloodPressureProvider"
 
 export default props => {
     const { BPs, addBP,  updateBP } = useContext(BloodPressureContext)
-    const [BP, setBP] = useState({})
+    const [BP, setBP] = useState({systolic : "", diastolic: ""})
 
+    const formClear = () => {
+        setBP({systolic : "", diastolic: ""})
+    }
     const editMode = props.match.params.hasOwnProperty("BPId")
 
     const handleControlledInputChange = (e) => {
 
         const newBP = Object.assign({}, BP)
-        newBP[e.target.name] = e.target.value
+        newBP[e.target.id] = e.target.value
         setBP(newBP)
     }
 
@@ -19,6 +22,10 @@ export default props => {
             const BPId = parseInt(props.match.params.BPId)
             const selectedBP = BPs.find(e => e.id === BPId) || {}
             setBP(selectedBP)
+            console.log("bp", selectedBP)
+        }
+        else {
+            setBP({systolic : "", diastolic: ""})
         }
     }
 
@@ -32,7 +39,7 @@ export default props => {
                     id: BP.id,
                     systolic: BP.systolic,
                     diastolic: BP.diastolic,
-                    timestamp: Date.now(),
+                    timestamp: BP.timestamp,
                     userId: parseInt(localStorage.getItem("activeUser"))
                 })
                     .then(() => props.history.push("/bloodPressure"))
@@ -43,22 +50,25 @@ export default props => {
                   diastolic: parseInt(BP.diastolic, 10),
                   timestamp: Date.now(),
                   userId: parseInt(localStorage.getItem("activeUser"))
-              })
-                  .then(() => props.history.push("/bloodPressure"))
+              }) 
+                  .then(() => {
+                    console.log("form is supposed to clear", BP)  
+                    formClear()
+                    console.log(BP)}) 
             }
         }
     
 
     return (
         <form className="bloodPressureForm">
-            <h2 className="bloodPressureForm__name">{editMode ? "Edit BP" : "Add BP"}</h2>
+            <h1 className="bloodPressureForm__name">{editMode ? "Edit Blood Pressure" : "Record Blood Pressure"}</h1>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Systolic: </label>
-                    <input type="number" name="systolic" required autoFocus className="form-control"
+                    <input type="number" id="systolic" required className="form-control"
                         proptype="int"
                         placeholder=""
-                        defaultValue={BP.systolic}
+                        value={BP.systolic}
                         onChange={handleControlledInputChange}
                     />
                 </div>
@@ -66,22 +76,23 @@ export default props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="url">Diastolic: </label>
-                    <input type="number" name="diastolic" required className="form-control"
+                    <input type="number" id="diastolic" required className="form-control"
                         proptype="int"
                         placeholder=""
-                        defaultValue={BP.diastolic}
+                        value={BP.diastolic}
                         onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
+            
 
             <button type="submit"
                 onClick={bp => {
                     bp.preventDefault()
                     createNewBP()
-                }}
+                    }}
                 className="btn btn-primary">
-                {editMode ? "Save Update" : "Add BP"}
+                {editMode ? "Save Update" : "Record"}
             </button>
 
         </form>
