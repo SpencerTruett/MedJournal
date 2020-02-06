@@ -45,6 +45,12 @@ export default (props) => {
             <Route exact path="/bloodPressure"
               render={props => <BloodPressureList{...props} />}
             />
+            <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+              render={props => <BloodPressureForm{...props} />}
+            />
+            <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+              render={props => <BloodPressureList{...props} />}
+            />
         </BloodPressureProvider>
       </>
   );
