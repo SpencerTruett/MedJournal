@@ -12,7 +12,7 @@ export default (props) => {
         <>
         <div className="FoodList">
             <div>
-                <h1>Food Journal</h1>
+                <h1>Food Journal Entries</h1>
             </div>    
             <div className="FoodJournal">
                 {
