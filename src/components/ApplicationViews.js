@@ -4,19 +4,21 @@ import { BloodPressureProvider } from "./bloodpressure/BloodPressureProvider";
 import BloodPressureList from "./bloodpressure/BloodPressureList";
 import BloodPressureForm from "./bloodpressure/BloodPressureForm";
 import BloodPressureChart from "./bloodpressure/BloodPressureChart"
+import { BloodGlucoseProvider } from "./bloodglucose/BloodGlucoseProvider";
 
 
 export default (props) => {
   return (
       <>
         <BloodPressureProvider>
+          <BloodGlucoseProvider>
           <Route exact path= "/" ><div className="pageButtons">
           <div>
               <button onClick={() => props.history.push("/bloodPressure")}>
                   Blood Pressure
               </button>
               
-              <button onClick={() => props.history.push("/bloodSugar")}>
+              <button onClick={() => props.history.push("/bloodGlucose")}>
                   Blood Sugar
               </button>
               
@@ -58,6 +60,7 @@ export default (props) => {
             <Route exact path="/bloodPressure/edit/:BPId(\d+)"
               render={props => <BloodPressureChart{...props} />}
             />
+          </BloodGlucoseProvider>
         </BloodPressureProvider>
       </>
   );
