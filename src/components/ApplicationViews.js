@@ -9,6 +9,7 @@ import BloodGlucoseList from "./bloodglucose/BloodGlucoseList";
 import BloodGlucoseForm from "./bloodglucose/BloodGlucoseForm";
 import BloodGlucoseChart from "./bloodglucose/BloodGlucoseChart";
 import { WeightProvider } from "./weight/WeightProvider";
+import WeightList from "./weight/WeightList";
 
 
 export default (props) => {
@@ -87,6 +88,16 @@ export default (props) => {
                   <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
                     render={props => <BloodGlucoseChart{...props} />}
                   />
+                </div>
+
+                <div className="TheWeights">
+                  <Route exact path="/weightTracker"
+                      render={props => <WeightList{...props} />}
+                    />
+                  <Route exact path="/weightTracker/edit/:WtId(\d+)"
+                    render={props => <WeightList{...props} />}
+                  />
+
                 </div>
 
             </WeightProvider>
