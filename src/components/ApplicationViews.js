@@ -16,6 +16,7 @@ import { ActivityProvider } from "./activity/ActivityProvider";
 import ActivityList from "./activity/ActivityList";
 import ActivityForm from "./activity/ActivityForm";
 import ActivityChart from "./activity/ActivityChart";
+import { FoodProvider } from "./food/FoodProvider";
 
 
 export default (props) => {
@@ -25,138 +26,140 @@ export default (props) => {
           <BloodGlucoseProvider>
             <WeightProvider>
               <ActivityProvider>
-              <Route exact path= "/" ><div className="pageButtons">
-              <div>
-                  <button onClick={() => props.history.push("/bloodPressure")}>
-                      Blood Pressure
-                  </button>
-                  
-                  <button onClick={() => props.history.push("/bloodGlucose")}>
-                      Blood Sugar
-                  </button>
-                  
-                  <button onClick={() => props.history.push("/weightTracker")}>
-                      Weight Tracker
-                  </button>
-                  
-                  <button onClick={() => props.history.push("/activityLog")}>
-                      Exercise Log
-                  </button>
-                  
-                  <button onClick={() => props.history.push("/foodJournal")}>
-                      Food Journal
-                  </button>
-                  
-                  <button onClick={() => props.history.push("/medicineLog")}>
-                      Madicine Log
-                  </button>
-                  
-              </div>    
-            </div>
-            </Route>
-              
-                <div className="TheBloodPressures">
-                  <Route exact path="/bloodPressure"
-                    render={props => <BloodPressureForm{...props} />}
-                  />
-                  <Route exact path="/bloodPressure"
-                    render={props => <BloodPressureList{...props} />}
-                  />
-                  <Route exact path="/bloodPressure"
-                    render={props => <BloodPressureChart{...props} />}
-                  />
-                  <Route exact path="/bloodPressure/edit/:BPId(\d+)"
-                    render={props => <BloodPressureForm{...props} />}
-                  />
-                  <Route exact path="/bloodPressure/edit/:BPId(\d+)"
-                    render={props => <BloodPressureList{...props} />}
-                  />
-                  <Route exact path="/bloodPressure/edit/:BPId(\d+)"
-                    render={props => <BloodPressureChart{...props} />}
-                  />
-                </div>
+                <FoodProvider>
+                    <Route exact path= "/" ><div className="pageButtons">
+                    <div>
+                        <button onClick={() => props.history.push("/bloodPressure")}>
+                            Blood Pressure
+                        </button>
+                        
+                        <button onClick={() => props.history.push("/bloodGlucose")}>
+                            Blood Sugar
+                        </button>
+                        
+                        <button onClick={() => props.history.push("/weightTracker")}>
+                            Weight Tracker
+                        </button>
+                        
+                        <button onClick={() => props.history.push("/activityLog")}>
+                            Exercise Log
+                        </button>
+                        
+                        <button onClick={() => props.history.push("/foodJournal")}>
+                            Food Journal
+                        </button>
+                        
+                        <button onClick={() => props.history.push("/medicineLog")}>
+                            Madicine Log
+                        </button>
+                        
+                    </div>    
+                  </div>
+                  </Route>
+                    
+                      <div className="TheBloodPressures">
+                        <Route exact path="/bloodPressure"
+                          render={props => <BloodPressureForm{...props} />}
+                        />
+                        <Route exact path="/bloodPressure"
+                          render={props => <BloodPressureList{...props} />}
+                        />
+                        <Route exact path="/bloodPressure"
+                          render={props => <BloodPressureChart{...props} />}
+                        />
+                        <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+                          render={props => <BloodPressureForm{...props} />}
+                        />
+                        <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+                          render={props => <BloodPressureList{...props} />}
+                        />
+                        <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+                          render={props => <BloodPressureChart{...props} />}
+                        />
+                      </div>
 
-                <div className="TheBloodGlucoses">
-                  <Route exact path="/bloodGlucose"
-                      render={props => <BloodGlucoseForm{...props} />}
-                    />
-                  <Route exact path="/bloodGlucose"
-                      render={props => <BloodGlucoseList{...props} />}
-                    />
-                  <Route exact path="/bloodGlucose"
-                    render={props => <BloodGlucoseChart{...props} />}
-                  />
-                  <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
-                    render={props => <BloodGlucoseForm{...props} />}
-                  />
-                  <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
-                    render={props => <BloodGlucoseList{...props} />}
-                  />
-                  <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
-                    render={props => <BloodGlucoseChart{...props} />}
-                  />
-                </div>
+                      <div className="TheBloodGlucoses">
+                        <Route exact path="/bloodGlucose"
+                            render={props => <BloodGlucoseForm{...props} />}
+                          />
+                        <Route exact path="/bloodGlucose"
+                            render={props => <BloodGlucoseList{...props} />}
+                          />
+                        <Route exact path="/bloodGlucose"
+                          render={props => <BloodGlucoseChart{...props} />}
+                        />
+                        <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
+                          render={props => <BloodGlucoseForm{...props} />}
+                        />
+                        <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
+                          render={props => <BloodGlucoseList{...props} />}
+                        />
+                        <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
+                          render={props => <BloodGlucoseChart{...props} />}
+                        />
+                      </div>
 
-                <div className="TheWeights">
-                  <Route exact path="/weightTracker"
-                      render={props => <WeightForm{...props} />}
-                    />
-                  <Route exact path="/weightTracker"
-                      render={props => <WeightList{...props} />}
-                    />
-                  <Route exact path="/weightTracker"
-                    render={props => <WeightChart{...props} />}
-                  />
-                  <Route exact path="/weightTracker/edit/:WtId(\d+)"
-                    render={props => <WeightForm{...props} />}
-                  />
-                  <Route exact path="/weightTracker/edit/:WtId(\d+)"
-                    render={props => <WeightList{...props} />}
-                  />
-                  <Route exact path="/weightTracker/edit/:WtId(\d+)"
-                    render={props => <WeightChart{...props} />}
-                  />
-                </div>
-              
-                <div className="TheActivities">
-                  <Route exact path="/activityLog"
-                      render={props => <ActivityForm{...props} />}
-                    />
-                  <Route exact path="/activityLog"
-                      render={props => <ActivityList{...props} />}
-                    />
-                  <Route exact path="/activityLog"
-                    render={props => <ActivityChart{...props} />}
-                  />
-                  <Route exact path="/activityLog/edit/:ActId(\d+)"
-                    render={props => <ActivityForm{...props} />}
-                  />
-                  <Route exact path="/activityLog/edit/:ActId(\d+)"
-                    render={props => <ActivityList{...props} />}
-                  />
-                  <Route exact path="/activityLog/edit/:ActId(\d+)"
-                    render={props => <ActivityChart{...props} />}
-                  />
-                </div>
-              
-              
+                      <div className="TheWeights">
+                        <Route exact path="/weightTracker"
+                            render={props => <WeightForm{...props} />}
+                          />
+                        <Route exact path="/weightTracker"
+                            render={props => <WeightList{...props} />}
+                          />
+                        <Route exact path="/weightTracker"
+                          render={props => <WeightChart{...props} />}
+                        />
+                        <Route exact path="/weightTracker/edit/:WtId(\d+)"
+                          render={props => <WeightForm{...props} />}
+                        />
+                        <Route exact path="/weightTracker/edit/:WtId(\d+)"
+                          render={props => <WeightList{...props} />}
+                        />
+                        <Route exact path="/weightTracker/edit/:WtId(\d+)"
+                          render={props => <WeightChart{...props} />}
+                        />
+                      </div>
+                    
+                      <div className="TheActivities">
+                        <Route exact path="/activityLog"
+                            render={props => <ActivityForm{...props} />}
+                          />
+                        <Route exact path="/activityLog"
+                            render={props => <ActivityList{...props} />}
+                          />
+                        <Route exact path="/activityLog"
+                          render={props => <ActivityChart{...props} />}
+                        />
+                        <Route exact path="/activityLog/edit/:ActId(\d+)"
+                          render={props => <ActivityForm{...props} />}
+                        />
+                        <Route exact path="/activityLog/edit/:ActId(\d+)"
+                          render={props => <ActivityList{...props} />}
+                        />
+                        <Route exact path="/activityLog/edit/:ActId(\d+)"
+                          render={props => <ActivityChart{...props} />}
+                        />
+                      </div>
+                    
+                    
 
 
 
-                <div className="ProfileView">
-                  <Route exact path="/profile"
-                    render={props => <BloodPressureChart{...props} />}
-                  />
-                  <Route exact path="/profile"
-                    render={props => <BloodGlucoseChart{...props} />}
-                  />
-                  <Route exact path="/profile"
-                    render={props => <WeightChart{...props} />}
-                  />
-                  <Route exact path="/profile"
-                    render={props => <ActivityChart{...props} />}
-                  />
-                </div>
+                      <div className="ProfileView">
+                        <Route exact path="/profile"
+                          render={props => <BloodPressureChart{...props} />}
+                        />
+                        <Route exact path="/profile"
+                          render={props => <BloodGlucoseChart{...props} />}
+                        />
+                        <Route exact path="/profile"
+                          render={props => <WeightChart{...props} />}
+                        />
+                        <Route exact path="/profile"
+                          render={props => <ActivityChart{...props} />}
+                        />
+                      </div>
+                </FoodProvider>
               </ActivityProvider>
             </WeightProvider>
           </BloodGlucoseProvider>
