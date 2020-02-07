@@ -46,7 +46,7 @@ export const ActivityProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log(Acts)
+        // console.log(Acts)
     }, [Acts])
 
     return (
