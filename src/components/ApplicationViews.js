@@ -12,6 +12,7 @@ import { WeightProvider } from "./weight/WeightProvider";
 import WeightList from "./weight/WeightList";
 import WeightForm from "./weight/WeightForm";
 import WeightChart from "./weight/WeightChart";
+import { ActivityProvider } from "./activity/ActivityProvider";
 
 
 export default (props) => {
@@ -20,6 +21,7 @@ export default (props) => {
         <BloodPressureProvider>
           <BloodGlucoseProvider>
             <WeightProvider>
+              <ActivityProvider>
               <Route exact path= "/" ><div className="pageButtons">
               <div>
                   <button onClick={() => props.history.push("/bloodPressure")}>
@@ -112,7 +114,8 @@ export default (props) => {
                     render={props => <WeightChart{...props} />}
                   />
                 </div>
-
+              
+              </ActivityProvider>
             </WeightProvider>
           </BloodGlucoseProvider>
         </BloodPressureProvider>
