@@ -1,9 +1,29 @@
 import React, { useContext } from "react";
 import {Line} from 'react-chartjs-2';
+import { BloodPressureContext } from "./BloodPressureProvider";
 
 export default () => {
+
+  const { BPs } = useContext(BloodPressureContext)
+  
+  let systolicReadings = []
+  BPs.forEach(bloodPressure => {systolicReadings.push(bloodPressure.systolic)})
+  // console.log(systolicReadings)
+
+  let diastolicReadings = []
+  BPs.forEach(bloodPressure => {diastolicReadings.push(bloodPressure.diastolic)})
+  // console.log(diastolicReadings)
+
+  let datesTaken = []
+  BPs.forEach(bloodPressure => {
+    let formattedDate = new Date(bloodPressure.timestamp).toLocaleDateString('en-US')
+    datesTaken.push(formattedDate)
+})
+  // console.log(datesTaken)
+
+
     const data = {
-        labels: ['-29 Days', '-28 Days', '-27 Days', '-26 Days', '-25 Days', '-24 Days', '-23 Days', '-22 Days', '-21 Days', '-20 Days', '-19 Days', '-18 Days', '-17 Days', '-16 Days', '-15 Days', '-14 Days', '-13 Days', '-12 Days', '-11 Days', '-10 Days', '-9 Days', '-8 Days', '-7 Days', '-6 Days', '-5 Days', '-4 Days', '-3 Days', '-2 Days', '-1 Day', 'Today'],
+        labels: datesTaken,
         datasets: [
           {
             label: 'Systolic',
@@ -24,7 +44,7 @@ export default () => {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [65, 59, 80, 81, 56, 55, 40]
+            data: systolicReadings
           },
           {
             label: 'Diastolic',
@@ -45,7 +65,7 @@ export default () => {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [24, 55, 43, 27, 30, 41, 52]
+            data: diastolicReadings
           }
         ]
       };
