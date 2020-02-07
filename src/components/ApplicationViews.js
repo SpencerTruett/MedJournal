@@ -13,6 +13,7 @@ import WeightList from "./weight/WeightList";
 import WeightForm from "./weight/WeightForm";
 import WeightChart from "./weight/WeightChart";
 import { ActivityProvider } from "./activity/ActivityProvider";
+import ActivityList from "./activity/ActivityList";
 
 
 export default (props) => {
@@ -36,7 +37,7 @@ export default (props) => {
                       Weight Tracker
                   </button>
                   
-                  <button onClick={() => props.history.push("/exerciseLog")}>
+                  <button onClick={() => props.history.push("/activityLog")}>
                       Exercise Log
                   </button>
                   
@@ -115,6 +116,14 @@ export default (props) => {
                   />
                 </div>
               
+                <div className="TheActivities">
+                  <Route exact path="/activityLog"
+                      render={props => <ActivityList{...props} />}
+                    />
+                  <Route exact path="/activityLog/edit/:ActId(\d+)"
+                    render={props => <ActivityList{...props} />}
+                  />
+                </div>
               </ActivityProvider>
             </WeightProvider>
           </BloodGlucoseProvider>
