@@ -17,6 +17,7 @@ import ActivityList from "./activity/ActivityList";
 import ActivityForm from "./activity/ActivityForm";
 import ActivityChart from "./activity/ActivityChart";
 import { FoodProvider } from "./food/FoodProvider";
+import FoodList from "./food/FoodList";
 
 
 export default (props) => {
@@ -141,7 +142,14 @@ export default (props) => {
                         />
                       </div>
                     
-                    
+                      <div className="TheFoods">
+                        <Route exact path="/foodJournal"
+                            render={props => <FoodList{...props} />}
+                          />
+                        <Route exact path="/foodJournal/edit/:FoodId(\d+)"
+                          render={props => <FoodList{...props} />}
+                        />
+                      </div>
 
 
 
