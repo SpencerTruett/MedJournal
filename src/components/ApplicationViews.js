@@ -5,6 +5,7 @@ import BloodPressureList from "./bloodpressure/BloodPressureList";
 import BloodPressureForm from "./bloodpressure/BloodPressureForm";
 import BloodPressureChart from "./bloodpressure/BloodPressureChart"
 import { BloodGlucoseProvider } from "./bloodglucose/BloodGlucoseProvider";
+import BloodGlucoseList from "./bloodglucose/BloodGlucoseList";
 
 
 export default (props) => {
@@ -41,25 +42,34 @@ export default (props) => {
           </div>    
         </div>
         </Route>
-          
-            <Route exact path="/bloodPressure"
-              render={props => <BloodPressureForm{...props} />}
-            />
-            <Route exact path="/bloodPressure"
-              render={props => <BloodPressureList{...props} />}
-            />
-            <Route exact path="/bloodPressure"
-              render={props => <BloodPressureChart{...props} />}
-            />
-            <Route exact path="/bloodPressure/edit/:BPId(\d+)"
-              render={props => <BloodPressureForm{...props} />}
-            />
-            <Route exact path="/bloodPressure/edit/:BPId(\d+)"
-              render={props => <BloodPressureList{...props} />}
-            />
-            <Route exact path="/bloodPressure/edit/:BPId(\d+)"
-              render={props => <BloodPressureChart{...props} />}
-            />
+           
+            <div className="TheBloodPressures">
+              <Route exact path="/bloodPressure"
+                render={props => <BloodPressureForm{...props} />}
+              />
+              <Route exact path="/bloodPressure"
+                render={props => <BloodPressureList{...props} />}
+              />
+              <Route exact path="/bloodPressure"
+                render={props => <BloodPressureChart{...props} />}
+              />
+              <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+                render={props => <BloodPressureForm{...props} />}
+              />
+              <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+                render={props => <BloodPressureList{...props} />}
+              />
+              <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+                render={props => <BloodPressureChart{...props} />}
+              />
+            </div>
+
+            <div className="TheBloodGlucoses">
+              <Route exact path="/bloodGlucose"
+                  render={props => <BloodGlucoseList{...props} />}
+                />
+            </div>
+
           </BloodGlucoseProvider>
         </BloodPressureProvider>
       </>
