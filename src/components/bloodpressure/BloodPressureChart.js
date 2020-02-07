@@ -24,12 +24,6 @@ export default () => {
 
     const data = {
         labels: datesTaken,
-        options: {
-          title: {
-              display: true,
-              text: 'Custom Chart Title',
-                }
-          },
         datasets: [
           {
             label: 'Systolic',
