@@ -52,9 +52,7 @@ export default props => {
                   userId: parseInt(localStorage.getItem("activeUser"))
               }) 
                   .then(() => {
-                    console.log("form is supposed to clear", BP)  
-                    formClear()
-                    console.log(BP)}) 
+                    formClear()}) 
             }
         }
     

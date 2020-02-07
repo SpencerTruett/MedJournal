@@ -3,6 +3,7 @@ import { Route } from "react-router-dom"
 import { BloodPressureProvider } from "./bloodpressure/BloodPressureProvider";
 import BloodPressureList from "./bloodpressure/BloodPressureList";
 import BloodPressureForm from "./bloodpressure/BloodPressureForm";
+import BloodPressureChart from "./bloodpressure/BloodPressureChart"
 
 
 export default (props) => {
@@ -45,11 +46,17 @@ export default (props) => {
             <Route exact path="/bloodPressure"
               render={props => <BloodPressureList{...props} />}
             />
+            <Route exact path="/bloodPressure"
+              render={props => <BloodPressureChart{...props} />}
+            />
             <Route exact path="/bloodPressure/edit/:BPId(\d+)"
               render={props => <BloodPressureForm{...props} />}
             />
             <Route exact path="/bloodPressure/edit/:BPId(\d+)"
               render={props => <BloodPressureList{...props} />}
+            />
+            <Route exact path="/bloodPressure/edit/:BPId(\d+)"
+              render={props => <BloodPressureChart{...props} />}
             />
         </BloodPressureProvider>
       </>
