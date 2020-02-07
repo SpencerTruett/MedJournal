@@ -7,6 +7,7 @@ import BloodPressureChart from "./bloodpressure/BloodPressureChart"
 import { BloodGlucoseProvider } from "./bloodglucose/BloodGlucoseProvider";
 import BloodGlucoseList from "./bloodglucose/BloodGlucoseList";
 import BloodGlucoseForm from "./bloodglucose/BloodGlucoseForm";
+import BloodGlucoseChart from "./bloodglucose/BloodGlucoseChart";
 
 
 export default (props) => {
@@ -72,11 +73,17 @@ export default (props) => {
               <Route exact path="/bloodGlucose"
                   render={props => <BloodGlucoseList{...props} />}
                 />
+              <Route exact path="/bloodGlucose"
+                render={props => <BloodGlucoseChart{...props} />}
+              />
               <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
                 render={props => <BloodGlucoseForm{...props} />}
               />
               <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
                 render={props => <BloodGlucoseList{...props} />}
+              />
+              <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
+                render={props => <BloodGlucoseChart{...props} />}
               />
             </div>
 

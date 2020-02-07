@@ -22,7 +22,7 @@ export default props => {
             const BPId = parseInt(props.match.params.BPId)
             const selectedBP = BPs.find(e => e.id === BPId) || {}
             setBP(selectedBP)
-            console.log("bp", selectedBP)
+            // console.log("bp", selectedBP)
         }
         else {
             setBP({systolic : "", diastolic: ""})
@@ -74,7 +74,7 @@ export default props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="url">Diastolic: </label>
-                    <input type="number" id="diastolic" required className="form-control"
+                    <input type="int" id="diastolic" required className="form-control"
                         proptype="int"
                         placeholder=""
                         value={BP.diastolic}
