@@ -66,12 +66,18 @@ export default (props) => {
             </div>
 
             <div className="TheBloodGlucoses">
-            <Route exact path="/bloodGlucose"
-                render={props => <BloodGlucoseForm{...props} />}
-              />
+              <Route exact path="/bloodGlucose"
+                  render={props => <BloodGlucoseForm{...props} />}
+                />
               <Route exact path="/bloodGlucose"
                   render={props => <BloodGlucoseList{...props} />}
                 />
+              <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
+                render={props => <BloodGlucoseForm{...props} />}
+              />
+              <Route exact path="/bloodGlucose/edit/:BGId(\d+)"
+                render={props => <BloodGlucoseList{...props} />}
+              />
             </div>
 
           </BloodGlucoseProvider>
