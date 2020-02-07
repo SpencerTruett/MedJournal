@@ -46,7 +46,7 @@ export const WeightProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log(Wts)
+        // console.log(Wts)
     }, [Wts])
 
     return (
