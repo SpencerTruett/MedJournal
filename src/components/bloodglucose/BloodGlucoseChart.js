@@ -46,6 +46,7 @@ export default () => {
       };
     return (
       <div className="BG__Chart">
+        <h1>Blood Glucose Chart</h1>
         <Line data={data} />
       </div>
     );

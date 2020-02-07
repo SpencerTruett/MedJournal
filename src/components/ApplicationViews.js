@@ -138,6 +138,25 @@ export default (props) => {
                     render={props => <ActivityChart{...props} />}
                   />
                 </div>
+              
+              
+
+
+
+                <div className="ProfileView">
+                  <Route exact path="/profile"
+                    render={props => <BloodPressureChart{...props} />}
+                  />
+                  <Route exact path="/profile"
+                    render={props => <BloodGlucoseChart{...props} />}
+                  />
+                  <Route exact path="/profile"
+                    render={props => <WeightChart{...props} />}
+                  />
+                  <Route exact path="/profile"
+                    render={props => <ActivityChart{...props} />}
+                  />
+                </div>
               </ActivityProvider>
             </WeightProvider>
           </BloodGlucoseProvider>
