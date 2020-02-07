@@ -46,6 +46,7 @@ export default () => {
       };
     return (
       <div className="Wt__Chart">
+        <h1>Weight Chart</h1>
         <Line data={data} />
       </div>
     );

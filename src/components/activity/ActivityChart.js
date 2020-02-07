@@ -46,6 +46,7 @@ export default () => {
       };
     return (
       <div className="Act__Chart">
+        <h1>Activity Chart</h1>
         <Line data={data} />
       </div>
     );

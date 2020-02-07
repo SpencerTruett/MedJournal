@@ -24,6 +24,12 @@ export default () => {
 
     const data = {
         labels: datesTaken,
+        options: {
+          title: {
+              display: true,
+              text: 'Custom Chart Title',
+                }
+          },
         datasets: [
           {
             label: 'Systolic',
@@ -71,6 +77,7 @@ export default () => {
       };
     return (
       <div className="BP__Chart">
+        <h1>Blood Pressure Chart</h1>
         <Line data={data} />
       </div>
     );
