@@ -6,6 +6,7 @@ import BloodPressureForm from "./bloodpressure/BloodPressureForm";
 import BloodPressureChart from "./bloodpressure/BloodPressureChart"
 import { BloodGlucoseProvider } from "./bloodglucose/BloodGlucoseProvider";
 import BloodGlucoseList from "./bloodglucose/BloodGlucoseList";
+import BloodGlucoseForm from "./bloodglucose/BloodGlucoseForm";
 
 
 export default (props) => {
@@ -65,6 +66,9 @@ export default (props) => {
             </div>
 
             <div className="TheBloodGlucoses">
+            <Route exact path="/bloodGlucose"
+                render={props => <BloodGlucoseForm{...props} />}
+              />
               <Route exact path="/bloodGlucose"
                   render={props => <BloodGlucoseList{...props} />}
                 />
