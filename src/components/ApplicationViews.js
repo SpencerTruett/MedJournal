@@ -14,6 +14,7 @@ import WeightForm from "./weight/WeightForm";
 import WeightChart from "./weight/WeightChart";
 import { ActivityProvider } from "./activity/ActivityProvider";
 import ActivityList from "./activity/ActivityList";
+import ActivityForm from "./activity/ActivityForm";
 
 
 export default (props) => {
@@ -118,8 +119,14 @@ export default (props) => {
               
                 <div className="TheActivities">
                   <Route exact path="/activityLog"
+                      render={props => <ActivityForm{...props} />}
+                    />
+                  <Route exact path="/activityLog"
                       render={props => <ActivityList{...props} />}
                     />
+                  <Route exact path="/activityLog/edit/:ActId(\d+)"
+                    render={props => <ActivityForm{...props} />}
+                  />
                   <Route exact path="/activityLog/edit/:ActId(\d+)"
                     render={props => <ActivityList{...props} />}
                   />
