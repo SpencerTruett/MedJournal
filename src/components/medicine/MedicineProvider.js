@@ -41,6 +41,17 @@ export const MedicineProvider = (props) => {
             .then(getRx)
     }
 
+    const patchRx = Rx => {
+        return fetch(`http://localhost:8088/medicine/${Rx.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(Rx)
+        })
+            .then(getRx)
+      }
+
     useEffect(() => {
         getRx()
     }, [])
@@ -51,7 +62,7 @@ export const MedicineProvider = (props) => {
 
     return (
         <MedicineContext.Provider value={{
-            Rxs, addRx, deleteRx, updateRx
+            Rxs, addRx, deleteRx, updateRx, patchRx
         }}>
             {props.children}
         </MedicineContext.Provider>

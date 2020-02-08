@@ -20,6 +20,7 @@ import { FoodProvider } from "./food/FoodProvider";
 import FoodList from "./food/FoodList";
 import FoodForm from "./food/FoodForm";
 import { MedicineProvider } from "./medicine/MedicineProvider";
+import MedicineList from "./medicine/MedicineList";
 
 
 export default (props) => {
@@ -166,7 +167,11 @@ export default (props) => {
                         />
                       </div>
 
-
+                      <div className="TheMedicines">
+                        <Route exact path="/medicineLog"
+                          render={props => <MedicineList{...props} />}
+                        />
+                      </div>
 
                       <div className="ProfileView">
                         <Route exact path="/profile"
