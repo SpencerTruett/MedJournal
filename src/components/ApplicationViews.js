@@ -156,6 +156,12 @@ export default (props) => {
                         <Route exact path="/foodJournal/edit/:FoodId(\d+)"
                           render={props => <FoodList{...props} />}
                         />
+                        <Route exact path="/foodJournal/view/:FoodId(\d+)"
+                          render={props => <FoodForm{...props} />}
+                        />
+                        <Route exact path="/foodJournal/view/:FoodId(\d+)"
+                          render={props => <FoodList{...props} />}
+                        />
                       </div>
 
 
