@@ -19,6 +19,7 @@ import ActivityChart from "./activity/ActivityChart";
 import { FoodProvider } from "./food/FoodProvider";
 import FoodList from "./food/FoodList";
 import FoodForm from "./food/FoodForm";
+import { MedicineProvider } from "./medicine/MedicineProvider";
 
 
 export default (props) => {
@@ -29,6 +30,7 @@ export default (props) => {
             <WeightProvider>
               <ActivityProvider>
                 <FoodProvider>
+                  <MedicineProvider>
                     <Route exact path= "/" ><div className="pageButtons">
                     <div>
                         <button onClick={() => props.history.push("/bloodPressure")}>
@@ -180,6 +182,7 @@ export default (props) => {
                           render={props => <ActivityChart{...props} />}
                         />
                       </div>
+                  </MedicineProvider>
                 </FoodProvider>
               </ActivityProvider>
             </WeightProvider>
