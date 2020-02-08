@@ -11,9 +11,14 @@ export default ({ Food, history }) => {
 
   function RenderFoods() {
       return <section className="foods">
+
+          {/* <button onClick={() => {
+            history.push(`/foodJournal/view/${Food.id}`)
+          }}>View</button> */}
+
           <h3 className="food__meal">{Food.meal}</h3>
           <h3 className="food__datetime">{Food.datetime}</h3>
-          {/* <h3 className="food__notes">{Food.notes}</h3> */}
+          <h3 className="food__notes">{Food.notes}</h3>
 
 
           <button onClick={() => {
