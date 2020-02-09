@@ -45,7 +45,6 @@ export default ({ Rx, history }) => {
           <h3 className="Rx__per">{Rx.per}</h3>
           <h3 className="Rx__dayweekmonth">{Rx.dayweekmonth}</h3>
           <h3 className="Rx__time">{Rx.time}</h3>
-          <label>Taken?</label> {checkbox()}
 
           <button onClick={() => {
             history.push(`/medicineLog/edit/${Rx.id}`)
@@ -54,11 +53,14 @@ export default ({ Rx, history }) => {
           <button onClick={
             () => {
               deleteRx(Rx)
-                .then(() => {
-                  history.push("/medicineLog")
-                })
+              .then(() => {
+                history.push("/medicineLog")
+              })
             }
           }>Delete</button>
+
+          <label>Taken?</label> {checkbox()}
+          
         </section>
     }  
   return RenderRxs()

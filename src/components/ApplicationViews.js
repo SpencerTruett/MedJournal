@@ -21,6 +21,7 @@ import FoodList from "./food/FoodList";
 import FoodForm from "./food/FoodForm";
 import { MedicineProvider } from "./medicine/MedicineProvider";
 import MedicineList from "./medicine/MedicineList";
+import MedicineForm from "./medicine/MedicineForm";
 
 
 export default (props) => {
@@ -169,6 +170,15 @@ export default (props) => {
 
                       <div className="TheMedicines">
                         <Route exact path="/medicineLog"
+                          render={props => <MedicineForm{...props} />}
+                        />
+                        <Route exact path="/medicineLog"
+                          render={props => <MedicineList{...props} />}
+                        />
+                        <Route exact path="/medicineLog/edit/:RxId(\d+)"
+                          render={props => <MedicineForm{...props} />}
+                        />
+                        <Route exact path="/medicineLog/edit/:RxId(\d+)"
                           render={props => <MedicineList{...props} />}
                         />
                       </div>
