@@ -15,7 +15,7 @@ export default ({ Rx, history }) => {
             checkboxValue = false
             const patchedRX= {
                 taken:checkboxValue,
-                id: Rx.id
+                id: Rx.id,
             }
             patchRx(patchedRX).then(()=> history.push("/medicineLog"))
         }} checked></input>
@@ -28,7 +28,8 @@ export default ({ Rx, history }) => {
         <input type="checkbox" name="checkbox" onChange={()=>{
             const patchedRx= {
                 taken:checkboxValue,
-                id: Rx.id
+                id: Rx.id,
+                timestamp: Date.now()
             }
             patchRx(patchedRx).then(()=> history.push("/medicineLog"))
         }}></input>
