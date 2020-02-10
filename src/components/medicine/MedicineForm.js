@@ -1,17 +1,17 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect, useRef } from "react"
 import { MedicineContext } from "./MedicineProvider"
+// import {DateInputComponent, DateFormats } from "react-controlled-date-input"
 
 export default props => {
     const { Rxs, addRx,  updateRx } = useContext(MedicineContext)
     const [Rx, setRx] = useState({name : "", dosage: "", per: "", dayweekmonth: "", time: ""})
-
+    
     const formClear = () => {
         setRx({name : "", dosage: "", per: "", dayweekmonth: "", time: ""})
     }
     const editMode = props.match.params.hasOwnProperty("RxId")
 
     const handleControlledInputChange = (e) => {
-
         const newRx = Object.assign({}, Rx)
         newRx[e.target.id] = e.target.value
         setRx(newRx)
@@ -25,7 +25,7 @@ export default props => {
             // console.log("Rx", selectedRx)
         }
         else {
-            setRx({name : "", dosage: "", per: "", dayweekmonth: "", time: ""})
+            formClear()
         }
     }
 
@@ -110,8 +110,8 @@ export default props => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Date: </label>
-                    <input type="datetime-local" name="dateTime" className="form-control"
+                    <label htmlFor="time">Time: </label>
+                    <input type="text" name="time" className="form-control"
                         proptype="varchar"
                         value={Rx.time}
                         onChange={handleControlledInputChange}>
