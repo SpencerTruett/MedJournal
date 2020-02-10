@@ -8,7 +8,8 @@ export default props => {
     const formClear = () => {
         setFood({meal : "", datetime: "", notes: ""})
     }
-    const editMode = props.match.params.hasOwnProperty("FoodId")
+    const editMode = props.location.pathname.includes("edit")
+    // console.log(props)
 
     const handleControlledInputChange = (e) => {
 
@@ -22,7 +23,7 @@ export default props => {
             const FoodId = parseInt(props.match.params.FoodId)
             const selectedFood = Foods.find(e => e.id === FoodId) || {}
             setFood(selectedFood)
-            console.log("Food", selectedFood)
+            // console.log("Food", selectedFood)
         }
         else {
             setFood({meal : "", datetime: "", notes: ""})

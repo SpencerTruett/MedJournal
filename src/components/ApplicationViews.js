@@ -23,6 +23,8 @@ import { MedicineProvider } from "./medicine/MedicineProvider";
 import MedicineList from "./medicine/MedicineList";
 import MedicineForm from "./medicine/MedicineForm";
 import MedicineTimestampList from "./medicine/MedicineTimestampList";
+import FoodDetailsList from "./food/FoodDetailsList";
+
 
 
 export default (props) => {
@@ -166,6 +168,9 @@ export default (props) => {
                         />
                         <Route exact path="/foodJournal/view/:FoodId(\d+)"
                           render={props => <FoodList{...props} />}
+                        />
+                        <Route exact path="/foodJournal/view/:FoodId(\d+)"
+                          render={props => <FoodDetailsList{...props} />}
                         />
                       </div>
 
