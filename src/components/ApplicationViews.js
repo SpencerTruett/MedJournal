@@ -203,6 +203,10 @@ export default (props) => {
                         <Route exact path="/profile"
                           render={props => <ActivityChart{...props} />}
                         />
+
+                        <Route exact path="/profile"
+                          render={props => <MedicineTimestampList{...props} />}
+                        />
                       </div>
                   </MedicineProvider>
                 </FoodProvider>
