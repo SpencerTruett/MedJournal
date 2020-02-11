@@ -11,9 +11,9 @@ export default ({ BP, history }) => {
 
   function RenderBPs() {
       return <section className="blood-pressures">
-          <h3 className="bp__systolic">{BP.systolic}</h3>
-          <h3 className="bp__diastolic">{BP.diastolic}</h3>
-          <div className="bp_date">{new Date(BP.timestamp).toLocaleDateString('en-US')}</div>
+          <div className="bp__systolic">{BP.systolic}</div> / 
+          <div className="bp__diastolic">{BP.diastolic}</div> on
+          <div className="bp_date">{new Date(BP.timestamp).toLocaleDateString('en-US')}</div> at
           <div className="bp__time">{new Date(BP.timestamp).toLocaleTimeString('en-US')}</div>
 
           <button onClick={() => {

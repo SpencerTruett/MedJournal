@@ -11,8 +11,8 @@ export default ({ BG, history }) => {
 
   function RenderBGs() {
       return <section className="blood-glucoses">
-          <h3 className="bg__glucose">{BG.glucose}</h3>
-          <div className="bg_date">{new Date(BG.timestamp).toLocaleDateString('en-US')}</div>
+          <div className="bg__glucose">{BG.glucose}</div> on
+          <div className="bg_date">{new Date(BG.timestamp).toLocaleDateString('en-US')}</div> at 
           <div className="bg__time">{new Date(BG.timestamp).toLocaleTimeString('en-US')}</div>
 
           <button onClick={() => {

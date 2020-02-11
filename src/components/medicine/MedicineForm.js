@@ -62,8 +62,10 @@ export default props => {
     
 
     return (
+        <details>
+        <summary>Add New Medicine</summary>
         <form className="MedicineForm">
-            <h1 className="MedicineForm__name">{editMode ? "Edit Medicine" : "Add Medicine"}</h1>
+            <h1 className="MedicineForm__name">{editMode ? "Edit Medicine" : "Add New Medicine"}</h1>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Name: </label>
@@ -88,7 +90,7 @@ export default props => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Amount: </label>
+                    <label htmlFor="number">Amount: </label>
                     <input type="number" id="per" required className="form-control"
                         proptype="int"
                         placeholder=""
@@ -99,23 +101,25 @@ export default props => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Day/Week/Month: </label>
-                    <input type="text" id="dayweekmonth" required className="form-control"
-                        proptype="varchar"
-                        placeholder=""
-                        value={Rx.dayweekmonth}
-                        onChange={handleControlledInputChange}
-                    />
+                    <label htmlFor="name">Day/Week/Month: 
+                    <select value={Rx.dayweekmonth} onChange={handleControlledInputChange} id="dayweekmonth" required className="form-control">
+                        <option value="default">Select...</option>
+                        <option value="Day">Day</option>
+                        <option value="Week">Week</option>
+                        <option value="Month">Month</option>
+                    </select>
+                    </label>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="time">Time: </label>
-                    <input type="text" name="time" className="form-control"
+                    <label htmlFor="name">Time: </label>
+                    <input type="time" id="time" required className="form-control"
                         proptype="varchar"
+                        placeholder=""
                         value={Rx.time}
-                        onChange={handleControlledInputChange}>
-                    </input>
+                        onChange={handleControlledInputChange}
+                    />
                 </div>
             </fieldset>
             
@@ -130,5 +134,6 @@ export default props => {
             </button>
 
         </form>
+        </details>
     )
 }

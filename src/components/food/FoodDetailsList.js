@@ -8,7 +8,7 @@ export default (props) => {
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
     const sortedFoods = Foods.filter(food => food.id === parseInt(props.match.params.FoodId))
-    console.log(sortedFoods)
+    // console.log(sortedFoods)
 
     return (
         <>

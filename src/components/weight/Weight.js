@@ -11,8 +11,8 @@ export default ({ Wt, history }) => {
 
   function RenderWts() {
       return <section className="weights">
-          <h3 className="wt__weight">{Wt.weight}</h3>
-          <div className="wt_date">{new Date(Wt.timestamp).toLocaleDateString('en-US')}</div>
+          <div className="wt__weight">{Wt.weight}</div>lbs on
+          <div className="wt_date">{new Date(Wt.timestamp).toLocaleDateString('en-US')}</div> at
           <div className="wt__time">{new Date(Wt.timestamp).toLocaleTimeString('en-US')}</div>
 
           <button onClick={() => {

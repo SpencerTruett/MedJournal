@@ -41,11 +41,11 @@ export default ({ Rx, history }) => {
 
   function RenderRxs() {
       return <section className="medicines">
-          <h3 className="Rx__name">{Rx.name}</h3>
-          <h3 className="Rx__dosage">{Rx.dosage}</h3>
-          <h3 className="Rx__per">{Rx.per}</h3>
-          <h3 className="Rx__dayweekmonth">{Rx.dayweekmonth}</h3>
-          <h3 className="Rx__time">{Rx.time}</h3>
+          <div className="Rx__name">{Rx.name}</div>
+          <div className="Rx__dosage">{Rx.dosage}</div>
+          <div className="Rx__per">{Rx.per}</div> per 
+          <div className="Rx__dayweekmonth">{Rx.dayweekmonth}</div> at
+          <div className="Rx__time">{Rx.time}</div>
 
           <button onClick={() => {
             history.push(`/medicineLog/edit/${Rx.id}`)

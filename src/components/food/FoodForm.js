@@ -59,17 +59,22 @@ export default props => {
     
 
     return (
+        <details>
+        <summary>Add Journal Entry</summary>
         <form className="foodJournalForm">
-            <h1 className="foodJournalForm__name">{editMode ? "Edit Food Journal" : "Record Food Journal"}</h1>
+            <h1 className="foodJournalForm__name">{editMode ? "Edit Food Journal" : "Add New Journal Entry"}</h1>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Meal: </label>
-                    <input type="text" id="meal" required className="form-control"
-                        proptype="varchar"
-                        placeholder=""
-                        value={Food.meal}
-                        onChange={handleControlledInputChange}
-                    />
+                <label htmlFor="name">Meal: 
+                    <select value={Food.meal} 
+                    onChange={handleControlledInputChange} id="meal" required className="form-control">
+                        <option value="default">Select...</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Snack">Snack</option>
+                    </select>
+                    </label>
                 </div>
             </fieldset>
             <fieldset>
@@ -107,5 +112,6 @@ export default props => {
             </button>
 
         </form>
+        </details>
     )
 }
