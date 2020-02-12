@@ -1,10 +1,13 @@
 import React, { useContext, useState, useEffect } from "react"
 import { FoodContext } from "./FoodProvider"
+import { ADDRCONFIG } from "dns"
 
 export default props => {
     const { Foods, addFood,  updateFood } = useContext(FoodContext)
+// The blank strings are a work-around to empty the form when adding and editing
     const [Food, setFood] = useState({meal : "", datetime: "", notes: ""})
 
+// The formClear function clears the form fields after submitting (a work-around)
     const formClear = () => {
         setFood({meal : "", datetime: "", notes: ""})
     }
@@ -20,6 +23,7 @@ export default props => {
         
     }
 
+// Using "Breakfast" in the setFood of the else allows for the initial value of the dropdown to be correct
     const setDefaults = () => {
         if (editMode) {
             const FoodId = parseInt(props.match.params.FoodId)
@@ -36,6 +40,7 @@ export default props => {
         setDefaults()
     }, [Foods])
 
+// If in "edit mode", the values are updated; if not, it creates a new object
     const createNewFood = () => {
             if (editMode) {
                 updateFood({
@@ -58,7 +63,7 @@ export default props => {
                     formClear()}) 
             }
         }
-    
+// Returning two differnt forms: one for edit mode, one for adding; The edit has an open attribute on the details to keep the detail open when swapping into editMode. Otherwise, the details collapsed when changing the url to edit thus hiding the information that was populating the form 
 if (editMode){
     return (
         <details open> 

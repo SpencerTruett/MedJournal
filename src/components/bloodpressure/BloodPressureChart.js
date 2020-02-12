@@ -6,14 +6,17 @@ export default () => {
 
   const { BPs } = useContext(BloodPressureContext)
   
+// Pusing to an array all of the systolic readings recorded by the form 
   let systolicReadings = []
   BPs.forEach(bloodPressure => {systolicReadings.push(bloodPressure.systolic)})
   // console.log(systolicReadings)
 
+// Pusing to an array all of the diastolic readings recorded by the form 
   let diastolicReadings = []
   BPs.forEach(bloodPressure => {diastolicReadings.push(bloodPressure.diastolic)})
   // console.log(diastolicReadings)
 
+// Pushing to an array all of the dates that the glucose readings were recorded
   let datesTaken = []
   BPs.forEach(bloodPressure => {
     let formattedDate = new Date(bloodPressure.timestamp).toLocaleDateString('en-US')
@@ -21,7 +24,7 @@ export default () => {
 })
   // console.log(datesTaken)
 
-
+// Plugging in my two new arrays into the labels and data areas of the chart; the two datasets create the two lines: one does systolic, one does diastolic
     const data = {
         labels: datesTaken,
         datasets: [

@@ -4,8 +4,10 @@ import { MedicineContext } from "./MedicineProvider"
 
 export default props => {
     const { Rxs, addRx,  updateRx } = useContext(MedicineContext)
+    // The blank strings are a work-around to empty the form when adding and editing; timestamp must be null
     const [Rx, setRx] = useState({name : "", dosage: "", per: "", dayweekmonth: "", time: "", timestamp: null})
     
+    // The formClear function clears the form fields after submitting (a work-around); timestamp must be null
     const formClear = () => {
         setRx({name : "", dosage: "", per: "", dayweekmonth: "", time: ""})
     }
@@ -17,6 +19,7 @@ export default props => {
         setRx(newRx)
     }
 
+// Using "Day" in the setFood of the else allows for the initial value of the dropdown to be correct; timestamp must be null
     const setDefaults = () => {
         if (editMode) {
             const RxId = parseInt(props.match.params.RxId)
@@ -33,6 +36,7 @@ export default props => {
         setDefaults()
     }, [Rxs])
 
+// If in "edit mode", the values are updated; if not, it creates a new object
     const createNewRx = () => {
             if (editMode) {
                 updateRx({
@@ -61,6 +65,7 @@ export default props => {
             }
         }
     
+// Returning two differnt forms: one for edit mode, one for adding; The edit has an open attribute on the details to keep the detail open when swapping into editMode. Otherwise, the details collapsed when changing the url to edit thus hiding the information that was populating the form 
 if (editMode){
     return (
         <details open>

@@ -7,6 +7,8 @@ export default ({ Rx, history }) => {
   const { deleteRx, patchRx } = useContext(MedicineContext)
   // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
 
+
+  // This code is responsible for changing the boolean value from true to false which allows it to render in the two lists; This also adds a timestamp of Date.now when the checkbox is checked to true
   const checkbox = ()=>{
     let checkboxValue = true
     if(Rx.taken === true){
@@ -38,6 +40,7 @@ export default ({ Rx, history }) => {
 }
 
 
+// The Medicine Card that shows the name, dosage, amount per day/week/month, and the time it is to be taken
 
   function RenderRxs() {
       return <section className="medicines">
@@ -46,6 +49,8 @@ export default ({ Rx, history }) => {
           <div className="Rx__per">{Rx.per}</div> per 
           <div className="Rx__dayweekmonth">{Rx.dayweekmonth}</div> at
           <div className="Rx__time">{Rx.time}</div>
+
+{/* Pushes to a unique url for the id on the Food to edit it; populates in the form */}
 
           <button onClick={() => {
             history.push(`/medicineLog/edit/${Rx.id}`)
@@ -60,6 +65,8 @@ export default ({ Rx, history }) => {
             }
           }>Delete</button>
 
+
+{/* The actual checkbox  */}
           <label>Taken?</label> {checkbox()}
           
         </section>

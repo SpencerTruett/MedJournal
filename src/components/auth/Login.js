@@ -52,6 +52,7 @@ const Login = props => {
             })
     }
 
+// The form for my login with fields for email and password 
     return (
         <main className="container--login">
             <section>

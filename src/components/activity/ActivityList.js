@@ -7,7 +7,7 @@ export default (props) => {
     const { Acts } = useContext(ActivityContext)
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
-
+// Creates the list of all of the Activity Recordings
     return (
         <>
         <div className="ActivityList">

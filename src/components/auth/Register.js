@@ -51,6 +51,7 @@ const Register = props => {
         }
     }
 
+// The register form containing first name, last name, email, password, and password confirmation fields 
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>

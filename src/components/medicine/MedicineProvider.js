@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+// Provides the context to the medicine pages 
 export const MedicineContext = React.createContext()
 
 export const MedicineProvider = (props) => {
@@ -41,6 +42,7 @@ export const MedicineProvider = (props) => {
             .then(getRx)
     }
 
+// The patch method being used to patch in my checkbox boolean and a timestamp
     const patchRx = Rx => {
         return fetch(`http://localhost:8088/medicine/${Rx.id}`, {
             method: "PATCH",

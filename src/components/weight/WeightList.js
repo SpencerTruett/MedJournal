@@ -7,7 +7,7 @@ export default (props) => {
     const { Wts } = useContext(WeightContext)
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
-
+// Creates the list of all of the Weight Recordings
     return (
         <>
         <div className="WeightList">

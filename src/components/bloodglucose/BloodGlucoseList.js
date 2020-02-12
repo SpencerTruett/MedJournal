@@ -7,7 +7,7 @@ export default (props) => {
     const { BGs } = useContext(BloodGlucoseContext)
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
-
+// Creates the list of all of the Blood Glucose Readings
     return (
         <>
         <div className="BloodGlucoseList">

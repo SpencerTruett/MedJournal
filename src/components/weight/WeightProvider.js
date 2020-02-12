@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+// Provides the context to the weight pages 
 export const WeightContext = React.createContext()
 
 export const WeightProvider = (props) => {

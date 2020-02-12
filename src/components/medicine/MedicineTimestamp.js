@@ -7,7 +7,7 @@ export default ({ Rx }) => {
   const { deleteRx, patchRx } = useContext(MedicineContext)
   // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
 
-
+// Renders the date and time that a timestamp was recorded (from the checkbox)
   function RenderRxs() {
       return <section className="medicines">
           <div className="Rx__name">{Rx.name}</div> Last taken on 

@@ -3,8 +3,10 @@ import { WeightContext } from "./WeightProvider"
 
 export default props => {
     const { Wts, addWt,  updateWt } = useContext(WeightContext)
+// The blank strings are a work-around to empty the form when adding and editing
     const [Wt, setWt] = useState({weight : ""})
 
+// The formClear function clears the form fields after submitting (a work-around)
     const formClear = () => {
         setWt({weight : ""})
     }
@@ -33,6 +35,7 @@ export default props => {
         setDefaults()
     }, [Wts])
 
+// If in "edit mode", the values are updated; if not, it creates a new object
     const createNewWt = () => {
             if (editMode) {
                 updateWt({
@@ -54,7 +57,7 @@ export default props => {
             }
         }
     
-
+// Ternary statements render different text depending on if you're adding or editing
     return (
         <form className="weightForm">
             <h1 className="weightForm__name">{editMode ? "Edit Weight" : "Record Weight"}</h1>

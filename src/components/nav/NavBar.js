@@ -1,10 +1,12 @@
-import React from "react"
+import React, { Profiler } from "react"
 import { Link } from "react-router-dom"
 import NavLink from "./NavLink"
 // import "./NavBar.css"
 
 
 export default (props) => {
+    
+// The three links for my main nav bar at the top of the page: Profile, home, and logout 
     return (
         <ul className="navbar">
             <li className="navbar__item">
@@ -15,6 +17,7 @@ export default (props) => {
                 <NavLink to="/" {...props}>Home</NavLink>    
             </li>
 
+{/* Logs out the active user  */}
             {
                 localStorage.getItem("activeUser")
                     ? <li className="navbar__item">

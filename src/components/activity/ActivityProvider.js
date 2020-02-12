@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 
+
+// Provides the context to the activty pages 
 export const ActivityContext = React.createContext()
 
 export const ActivityProvider = (props) => {

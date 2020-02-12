@@ -36,6 +36,7 @@ export default (props) => {
               <ActivityProvider>
                 <FoodProvider>
                   <MedicineProvider>
+{/* The Buttons on the Home Page that link to the 6 main views */}
                     <Route exact path= "/" ><div className="pageButtons">
                     <div>
                         <button onClick={() => props.history.push("/bloodPressure")}>
@@ -65,7 +66,8 @@ export default (props) => {
                     </div>    
                   </div>
                   </Route>
-                    
+
+{/* The lists, forms, and charts for the Blood Pressures  */}
                       <div className="TheBloodPressures">
                         <Route exact path="/bloodPressure"
                           render={props => <BloodPressureForm{...props} />}
@@ -87,6 +89,7 @@ export default (props) => {
                         />
                       </div>
 
+{/* The lists, forms, and charts for the Blood Glucoses  */}
                       <div className="TheBloodGlucoses">
                         <Route exact path="/bloodGlucose"
                             render={props => <BloodGlucoseForm{...props} />}
@@ -108,6 +111,7 @@ export default (props) => {
                         />
                       </div>
 
+{/* The lists, forms, and charts for the Weights  */}
                       <div className="TheWeights">
                         <Route exact path="/weightTracker"
                             render={props => <WeightForm{...props} />}
@@ -129,6 +133,7 @@ export default (props) => {
                         />
                       </div>
                     
+{/* The lists, forms, and charts for the Activities  */}
                       <div className="TheActivities">
                         <Route exact path="/activityLog"
                             render={props => <ActivityForm{...props} />}
@@ -149,7 +154,8 @@ export default (props) => {
                           render={props => <ActivityChart{...props} />}
                         />
                       </div>
-                    
+
+{/* The lists, forms, and views for the Food Journal  */}
                       <div className="TheFoods">
                         <Route exact path="/foodJournal"
                             render={props => <FoodForm{...props} />}
@@ -174,6 +180,7 @@ export default (props) => {
                         />
                       </div>
 
+{/* The lists, forms, and timestamp recordings for the Medicine  */}
                       <div className="TheMedicines">
                         <Route exact path="/medicineLog"
                           render={props => <MedicineForm{...props} />}
@@ -195,6 +202,7 @@ export default (props) => {
                         />
                       </div>
 
+{/* The Profile View that shows the summaries of the other 6: The Blood Pressure Chart, the Blood Glucose Chart, the Weight Chart, the Activity Chart, the Food Journal View, and the Medicine Timestamps  */}
                       <div className="ProfileView">
                         <Route exact path="/profile"
                           render={props => <BloodPressureChart{...props} />}
