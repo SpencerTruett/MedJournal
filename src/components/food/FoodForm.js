@@ -12,10 +12,12 @@ export default props => {
     // console.log(props)
 
     const handleControlledInputChange = (e) => {
-
+        
         const newFood = Object.assign({}, Food)
         newFood[e.target.id] = e.target.value
         setFood(newFood)
+        console.log(newFood, "newfood");
+        
     }
 
     const setDefaults = () => {
@@ -23,10 +25,10 @@ export default props => {
             const FoodId = parseInt(props.match.params.FoodId)
             const selectedFood = Foods.find(e => e.id === FoodId) || {}
             setFood(selectedFood)
-            // console.log("Food", selectedFood)
+            console.log("Food", selectedFood)
         }
         else {
-            setFood({meal : "", datetime: "", notes: ""})
+            setFood({meal : "Breakfast", datetime: "", notes: ""})
         }
     }
 
@@ -57,18 +59,18 @@ export default props => {
             }
         }
     
-
+if (editMode){
     return (
-        <details>
-        <summary>Add Journal Entry</summary>
+        <details open> 
+        <summary>Edit Journal Entry</summary>
         <form className="foodJournalForm">
-            <h1 className="foodJournalForm__name">{editMode ? "Edit Food Journal" : "Add New Journal Entry"}</h1>
+            <h1 className="foodJournalForm__name">Edit Food Journal
+            </h1>
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="name">Meal: 
                     <select value={Food.meal} 
                     onChange={handleControlledInputChange} id="meal" required className="form-control">
-                        <option value="default">Select...</option>
                         <option value="Breakfast">Breakfast</option>
                         <option value="Lunch">Lunch</option>
                         <option value="Dinner">Dinner</option>
@@ -78,7 +80,7 @@ export default props => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="form-groxup">
                     <label htmlFor="name">Date/Time: </label>
                     <input type="datetime-local" id="datetime" required className="form-control"
                         proptype="varchar"
@@ -108,10 +110,69 @@ export default props => {
                     createNewFood()
                     }}
                 className="btn btn-primary">
-                {editMode ? "Save Update" : "Record"}
+               Save Update
+                
+            </button>
+
+        </form>
+        </details>
+    ) 
+}
+else {
+    return (
+        <details> 
+        <summary>Add Journal Entry</summary>
+        <form className="foodJournalForm">
+            <h1 className="foodJournalForm__name">Add New Journal Entry</h1>
+            <fieldset>
+                <div className="form-group">
+                <label htmlFor="name">Meal: 
+                    <select value={Food.meal} 
+                    onChange={handleControlledInputChange} id="meal" required className="form-control">
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Snack">Snack</option>
+                    </select>
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-groxup">
+                    <label htmlFor="name">Date/Time: </label>
+                    <input type="datetime-local" id="datetime" required className="form-control"
+                        proptype="varchar"
+                        placeholder=""
+                        value={Food.datetime}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Notes: </label>
+                    <input type="text" id="notes" required className="form-control"
+                        proptype="varchar"
+                        placeholder=""
+                        value={Food.notes}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            
+          
+
+            <button type="submit"
+                onClick={Food => {
+                    Food.preventDefault()
+                    createNewFood()
+                    }}
+                className="btn btn-primary">
+                Record
+                
             </button>
 
         </form>
         </details>
     )
-}
+}}
