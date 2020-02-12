@@ -7,7 +7,7 @@ export default (props) => {
     const { BPs } = useContext(BloodPressureContext)
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
-
+// Creates the list of all of the Blood Pressure Readings
     return (
         <>
         <div className="BloodPressureList">

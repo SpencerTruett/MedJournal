@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+// Provides the context to the food pages 
 export const FoodContext = React.createContext()
 
 export const FoodProvider = (props) => {

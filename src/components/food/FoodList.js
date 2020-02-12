@@ -7,7 +7,7 @@ export default (props) => {
     const { Foods } = useContext(FoodContext)
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
-
+// Creates the list of all of the Food Journal Entries
     return (
         <>
         <div className="FoodList">

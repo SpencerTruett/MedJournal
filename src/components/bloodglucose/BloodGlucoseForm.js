@@ -3,8 +3,10 @@ import { BloodGlucoseContext } from "./BloodGlucoseProvider"
 
 export default props => {
     const { BGs, addBG,  updateBG } = useContext(BloodGlucoseContext)
+// The blank strings are a work-around to empty the form when adding and editing
     const [BG, setBG] = useState({glucose : ""})
 
+// The formClear function clears the form fields after submitting (a work-around)
     const formClear = () => {
         setBG({glucose : ""})
     }
@@ -33,6 +35,7 @@ export default props => {
         setDefaults()
     }, [BGs])
 
+// If in "edit mode", the values are updated; if not, it creates a new object
     const createNewBG = () => {
             if (editMode) {
                 updateBG({
@@ -54,7 +57,7 @@ export default props => {
             }
         }
     
-
+// Ternary statements render different text depending on if you're adding or editing
     return (
         <form className="bloodGlucoseForm">
             <h1 className="bloodGlucoseForm__name">{editMode ? "Edit Blood Glucose" : "Record Blood Glucose"}</h1>

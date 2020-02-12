@@ -7,9 +7,11 @@ export default (props) => {
     const { Rxs } = useContext(MedicineContext)
     // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
 
+// This filters the full list of medicine based on if the checkbox is checked or not 
     const upcomingMedicine = Rxs.filter(Rx=>Rx.taken !==true)
     const takenMedicine = Rxs.filter(Rx=>Rx.taken === true)
 
+// The two lists of medicine: one if the checkbox is true; one if the checkbox is false
     return (
         <>
         <div className="FullMedicineList">

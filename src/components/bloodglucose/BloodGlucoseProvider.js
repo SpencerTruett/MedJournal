@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+// Provides the context to the blood glucose pages 
 export const BloodGlucoseContext = React.createContext()
 
 export const BloodGlucoseProvider = (props) => {

@@ -8,7 +8,7 @@ export default ({ Food, history }) => {
   // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
 
 
-
+// The Food Deatils Card that shows both the meal, the date and time, and the notes; the notes is different from the other page; you reach this card from the view button
   function RenderFoods() {
       return <section className="foods">
 
@@ -17,6 +17,7 @@ export default ({ Food, history }) => {
           <div className="food__notes">{Food.notes}</div>
 
 
+{/* Pushes to a unique url for the id on the Food to edit it; populates in the form */}
           <button onClick={() => {
             history.push(`/foodJournal/edit/${Food.id}`)
           }}>Edit</button>

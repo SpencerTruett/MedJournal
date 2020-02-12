@@ -3,8 +3,10 @@ import { ActivityContext } from "./ActivityProvider"
 
 export default props => {
     const { Acts, addAct,  updateAct } = useContext(ActivityContext)
+// The blank strings are a work-around to empty the form when adding and editing
     const [Act, setAct] = useState({minutes : ""})
 
+// The formClear function clears the form fields after submitting (a work-around)
     const formClear = () => {
         setAct({minutes : ""})
     }
@@ -33,6 +35,7 @@ export default props => {
         setDefaults()
     }, [Acts])
 
+// If in "edit mode", the values are updated; if not, it creates a new object
     const createNewAct = () => {
             if (editMode) {
                 updateAct({
@@ -54,7 +57,7 @@ export default props => {
             }
         }
     
-
+// Ternary statements render different text depending on if you're adding or editing
     return (
         <form className="activityLogForm">
             <h1 className="activityLogForm__name">{editMode ? "Edit Activity" : "Record Activity"}</h1>

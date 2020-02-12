@@ -8,13 +8,15 @@ export default ({ BP, history }) => {
   // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
 
 
-
+// The Blood Pressure Card that shows both the systolic reading, diastolic reading, date, and time
   function RenderBPs() {
       return <section className="blood-pressures">
           <div className="bp__systolic">{BP.systolic}</div> / 
           <div className="bp__diastolic">{BP.diastolic}</div> on
           <div className="bp_date">{new Date(BP.timestamp).toLocaleDateString('en-US')}</div> at
           <div className="bp__time">{new Date(BP.timestamp).toLocaleTimeString('en-US')}</div>
+
+{/* Pushes to a unique url for the id on the Blood Pressure to edit it; populates in the form */}
 
           <button onClick={() => {
             history.push(`/bloodPressure/edit/${BP.id}`)

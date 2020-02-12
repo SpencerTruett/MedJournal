@@ -7,10 +7,12 @@ export default ({ Food, history }) => {
   const { deleteFood } = useContext(FoodContext)
   // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
 
-
+// The Food Journal Card that shows both the meal and the date and time selected
 
   function RenderFoods() {
       return <section className="foods">
+
+{/* Pushes to a unique url for the id on the Food to view that entry */}
 
           <button onClick={() => {
             history.push(`/foodJournal/view/${Food.id}`)
@@ -20,6 +22,7 @@ export default ({ Food, history }) => {
           <div className="food__datetime">{Food.datetime}</div>
           {/* <div className="food__notes">{Food.notes}</div> */}
 
+{/* Pushes to a unique url for the id on the Food to edit it; populates in the form */}
 
           <button onClick={() => {
             history.push(`/foodJournal/edit/${Food.id}`)

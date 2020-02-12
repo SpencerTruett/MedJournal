@@ -1,10 +1,13 @@
 import React, { useContext, useState, useEffect } from "react"
 import { BloodPressureContext } from "./BloodPressureProvider"
+import { notDeepEqual } from "assert"
 
 export default props => {
     const { BPs, addBP,  updateBP } = useContext(BloodPressureContext)
+// The blank strings are a work-around to empty the form when adding and editing
     const [BP, setBP] = useState({systolic : "", diastolic: ""})
 
+// The formClear function clears the form fields after submitting (a work-around)
     const formClear = () => {
         setBP({systolic : "", diastolic: ""})
     }
@@ -33,6 +36,7 @@ export default props => {
         setDefaults()
     }, [BPs])
 
+// If in "edit mode", the values are updated; if not, it creates a new object
     const createNewBP = () => {
             if (editMode) {
                 updateBP({
@@ -56,7 +60,7 @@ export default props => {
             }
         }
     
-
+// Ternary statements render different text depending on if you're adding or editing
     return (
         <form className="bloodPressureForm">
             <h1 className="bloodPressureForm__name">{editMode ? "Edit Blood Pressure" : "Record Blood Pressure"}</h1>

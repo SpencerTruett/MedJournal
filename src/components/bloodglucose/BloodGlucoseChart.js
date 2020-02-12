@@ -6,10 +6,12 @@ export default () => {
 
   const { BGs } = useContext(BloodGlucoseContext)
   
+// Pusing to an array all of the glucose readings recorded by the form 
   let glucoseReadings = []
   BGs.forEach(bloodGlucose => {glucoseReadings.push(bloodGlucose.glucose)})
   // console.log(glucoseReadings)
 
+// Pushing to an array all of the dates that the glucose readings were recorded
   let datesTaken = []
   BGs.forEach(bloodGlucose => {
     let formattedDate = new Date(bloodGlucose.timestamp).toLocaleDateString('en-US')
@@ -17,7 +19,7 @@ export default () => {
 })
   // console.log(datesTaken)
 
-
+// Plugging in my two new arrays into the labels and data areas of the chart
     const data = {
         labels: datesTaken,
         datasets: [
