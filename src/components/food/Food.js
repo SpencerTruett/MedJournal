@@ -16,9 +16,9 @@ export default ({ Food, history }) => {
             history.push(`/foodJournal/view/${Food.id}`)
           }}>View</button>
 
-          <h3 className="food__meal">{Food.meal}</h3>
-          <h3 className="food__datetime">{Food.datetime}</h3>
-          {/* <h3 className="food__notes">{Food.notes}</h3> */}
+          <div className="food__meal">{Food.meal}</div>
+          <div className="food__datetime">{Food.datetime}</div>
+          {/* <div className="food__notes">{Food.notes}</div> */}
 
 
           <button onClick={() => {

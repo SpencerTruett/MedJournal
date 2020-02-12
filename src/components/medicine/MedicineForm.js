@@ -4,7 +4,7 @@ import { MedicineContext } from "./MedicineProvider"
 
 export default props => {
     const { Rxs, addRx,  updateRx } = useContext(MedicineContext)
-    const [Rx, setRx] = useState({name : "", dosage: "", per: "", dayweekmonth: "", time: ""})
+    const [Rx, setRx] = useState({name : "", dosage: "", per: "", dayweekmonth: "", time: "", timestamp: null})
     
     const formClear = () => {
         setRx({name : "", dosage: "", per: "", dayweekmonth: "", time: ""})
@@ -25,7 +25,7 @@ export default props => {
             // console.log("Rx", selectedRx)
         }
         else {
-            formClear()
+            setRx({name : "", dosage: "", per: "", dayweekmonth: "Day", time: "", timestamp: null})
         }
     }
 
@@ -53,6 +53,7 @@ export default props => {
                     per: parseInt(Rx.per, 10),
                     dayweekmonth: Rx.dayweekmonth,
                     time: Rx.time,
+                    timestamp: Rx.timestamp,
                     userId: parseInt(localStorage.getItem("activeUser"))
               }) 
                   .then(() => {
@@ -60,10 +61,12 @@ export default props => {
             }
         }
     
-
+if (editMode){
     return (
+        <details open>
+        <summary>Edit Medicine</summary>
         <form className="MedicineForm">
-            <h1 className="MedicineForm__name">{editMode ? "Edit Medicine" : "Add Medicine"}</h1>
+            <h1 className="MedicineForm__name">Edit Medicine</h1>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Name: </label>
@@ -88,7 +91,7 @@ export default props => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Amount: </label>
+                    <label htmlFor="number">Amount: </label>
                     <input type="number" id="per" required className="form-control"
                         proptype="int"
                         placeholder=""
@@ -99,23 +102,24 @@ export default props => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Day/Week/Month: </label>
-                    <input type="text" id="dayweekmonth" required className="form-control"
-                        proptype="varchar"
-                        placeholder=""
-                        value={Rx.dayweekmonth}
-                        onChange={handleControlledInputChange}
-                    />
+                    <label htmlFor="name">Day/Week/Month: 
+                    <select value={Rx.dayweekmonth} onChange={handleControlledInputChange} id="dayweekmonth" required className="form-control">
+                        <option value="Day">Day</option>
+                        <option value="Week">Week</option>
+                        <option value="Month">Month</option>
+                    </select>
+                    </label>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="time">Time: </label>
-                    <input type="text" name="time" className="form-control"
+                    <label htmlFor="name">Time: </label>
+                    <input type="time" id="time" required className="form-control"
                         proptype="varchar"
+                        placeholder=""
                         value={Rx.time}
-                        onChange={handleControlledInputChange}>
-                    </input>
+                        onChange={handleControlledInputChange}
+                    />
                 </div>
             </fieldset>
             
@@ -126,9 +130,86 @@ export default props => {
                     createNewRx()
                     }}
                 className="btn btn-primary">
-                {editMode ? "Save Update" : "Add"}
+                Save Update
             </button>
 
         </form>
-    )
+        </details>
+    ) 
 }
+else {
+    return (
+        <details>
+        <summary>Add New Medicine</summary>
+        <form className="MedicineForm">
+            <h1 className="MedicineForm__name">Add New Medicine</h1>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Name: </label>
+                    <input type="text" id="name" required className="form-control"
+                        proptype="varchar"
+                        placeholder=""
+                        value={Rx.name}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Dosage: </label>
+                    <input type="text" id="dosage" required className="form-control"
+                        proptype="varchar"
+                        placeholder=""
+                        value={Rx.dosage}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="number">Amount: </label>
+                    <input type="number" id="per" required className="form-control"
+                        proptype="int"
+                        placeholder=""
+                        value={Rx.per}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Day/Week/Month: 
+                    <select value={Rx.dayweekmonth} onChange={handleControlledInputChange} id="dayweekmonth" required className="form-control">
+                        <option value="Day">Day</option>
+                        <option value="Week">Week</option>
+                        <option value="Month">Month</option>
+                    </select>
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Time: </label>
+                    <input type="time" id="time" required className="form-control"
+                        proptype="varchar"
+                        placeholder=""
+                        value={Rx.time}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            
+
+            <button type="submit"
+                onClick={Rx => {
+                    Rx.preventDefault()
+                    createNewRx()
+                    }}
+                className="btn btn-primary">
+                Add
+            </button>
+
+        </form>
+        </details>
+    ) 
+}}

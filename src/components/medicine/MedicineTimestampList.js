@@ -17,7 +17,8 @@ export default (props) => {
             <div className="LastTakenMeds">
                 {
                     Rxs.map(Rx => {
-                        return <MedicineTimestamp key={Rx.id} Rx={Rx} {...props} />
+                        if (Rx.timestamp !== null) {                      
+                        return <MedicineTimestamp key={Rx.id} Rx={Rx} {...props} />}
                     })
                 }
             </div>

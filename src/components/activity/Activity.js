@@ -11,8 +11,8 @@ export default ({ Act, history }) => {
 
   function RenderActs() {
       return <section className="activity">
-          <h3 className="act__minutes">{Act.minutes}</h3>
-          <div className="act_date">{new Date(Act.timestamp).toLocaleDateString('en-US')}</div>
+          <div className="act__minutes">{Act.minutes}</div> mins. on
+          <div className="act_date">{new Date(Act.timestamp).toLocaleDateString('en-US')}</div> at
           <div className="act__time">{new Date(Act.timestamp).toLocaleTimeString('en-US')}</div>
 
           <button onClick={() => {

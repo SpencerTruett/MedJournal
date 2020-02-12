@@ -57,7 +57,7 @@ export const MedicineProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log(Rxs)
+        // console.log(Rxs)
     }, [Rxs])
 
     return (

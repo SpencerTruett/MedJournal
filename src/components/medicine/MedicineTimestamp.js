@@ -10,8 +10,8 @@ export default ({ Rx }) => {
 
   function RenderRxs() {
       return <section className="medicines">
-          <h3 className="Rx__name">{Rx.name}</h3>
-          <div className="Rx_date">{new Date(Rx.timestamp).toLocaleDateString('en-US')}</div>
+          <div className="Rx__name">{Rx.name}</div> Last taken on 
+          <div className="Rx_date">{new Date(Rx.timestamp).toLocaleDateString('en-US')}</div> at 
           <div className="Rx__time">{new Date(Rx.timestamp).toLocaleTimeString('en-US')}</div>
                 
         </section>
