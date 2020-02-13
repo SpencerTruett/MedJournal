@@ -17,7 +17,7 @@ const userFunction = () => {
       return (
         <>
           {
-            Rxs.map(Rx => {
+            filteredRxs.map(Rx => {
             if (Rx.timestamp !== null) {                      
             return <MedicineTimestamp key={Rx.id} Rx={Rx} {...props} />}
         })
