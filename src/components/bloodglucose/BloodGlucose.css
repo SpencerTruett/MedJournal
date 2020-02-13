@@ -1,0 +1,12 @@
+.blood-glucoses {
+  display: flex;
+  background-color: #b3b3b3;
+  justify-content: space-evenly;
+  padding: .25em;
+  margin: .25em 0;
+}
+
+.BloodGlucoseReadings {
+  height: 160px;
+  overflow: scroll;
+}

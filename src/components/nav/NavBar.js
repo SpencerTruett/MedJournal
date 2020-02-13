@@ -1,26 +1,26 @@
 import React, { Profiler } from "react"
 import { Link } from "react-router-dom"
 import NavLink from "./NavLink"
-// import "./NavBar.css"
+import "./Nav.css"
 
 
 export default (props) => {
     
 // The three links for my main nav bar at the top of the page: Profile, home, and logout 
     return (
-        <ul className="navbar">
-            <li className="navbar__item">
-                <NavLink to="/profile" {...props}>Profile</NavLink> 
-            </li>
+        <section className="navbar">
+            <div className="navbar__item">
+                <NavLink className="navbar__link" to="/profile" {...props}>Profile</NavLink> 
+            </div>
 
-            <li className="navbar__item">
-                <NavLink to="/" {...props}>Home</NavLink>    
-            </li>
+            <div className="navbar__item">
+                <NavLink className="navbar__link" to="/" {...props}>Home</NavLink>    
+            </div>
 
 {/* Logs out the active user  */}
             {
                 localStorage.getItem("activeUser")
-                    ? <li className="navbar__item">
+                    ? <div className="navbar__item">
                         <Link className="navbar__link"
                             to=""
                             onClick={e => {
@@ -29,9 +29,9 @@ export default (props) => {
                                 props.history.push("/")
                             }}
                         >Logout</Link>
-                    </li>
+                    </div>
                     : ""
             }
-        </ul>
+        </section>
     )
 }

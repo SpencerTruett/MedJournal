@@ -1,0 +1,24 @@
+.HomeButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.HomeButtons button {
+  width: 45%;
+  height: 10rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  max-height: 125px;
+}
+
+.buttonText {
+  text-align: center;
+}

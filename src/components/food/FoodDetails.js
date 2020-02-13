@@ -10,11 +10,11 @@ export default ({ Food, history }) => {
 
 // The Food Deatils Card that shows both the meal, the date and time, and the notes; the notes is different from the other page; you reach this card from the view button
   function RenderFoods() {
-      return <section className="foods">
+      return <section className="foodDetails">
 
-          <div className="food__meal">{Food.meal}</div>
-          <div className="food__datetime">{Food.datetime}</div>
-          <div className="food__notes">{Food.notes}</div>
+          <h3 className="food__meal">{Food.meal}</h3>
+          <h3 className="food__datetime">{Food.datetime}</h3>
+          <h3 className="food__notes">{Food.notes}</h3>
 
 
 {/* Pushes to a unique url for the id on the Food to edit it; populates in the form */}

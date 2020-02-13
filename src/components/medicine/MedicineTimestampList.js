@@ -30,7 +30,7 @@ const userFunction = () => {
         <>
         <div className="LastTakenMedicineList">
             <div>
-                <h1>Last Taken</h1>
+                <h1>Medicine Last Taken</h1>
             </div>    
             <div className="LastTakenMeds">
                 {
