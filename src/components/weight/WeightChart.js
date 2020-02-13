@@ -5,15 +5,17 @@ import { WeightContext } from "./WeightProvider";
 export default () => {
 
   const { Wts } = useContext(WeightContext)
+  const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+  const filteredWts = Wts.filter(Wt => Wt.userId === activeUserId) || []
 
 // Pusing to an array all of the weights recorded by the form 
   let weightReadings = []
-  Wts.forEach(weight => {weightReadings.push(weight.weight)})
+  filteredWts.forEach(weight => {weightReadings.push(weight.weight)})
   // console.log(weightReadings)
 
 // Pushing to an array all of the dates that the glucose readings were recorded
   let datesTaken = []
-  Wts.forEach(weight => {
+  filteredWts.forEach(weight => {
     let formattedDate = new Date(weight.timestamp).toLocaleDateString('en-US')
     datesTaken.push(formattedDate)
 })

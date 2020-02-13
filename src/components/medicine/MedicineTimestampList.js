@@ -5,9 +5,27 @@ import "./Medicine.css"
 
 export default (props) => {
     const { Rxs } = useContext(MedicineContext)
-    // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+    const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+    const filteredRxs = Rxs.filter(Rx => Rx.userId === activeUserId) || []
 
-// Creates a list of timestamped MedicineProvider, but if there is a timestamp present; not if no timestamp has been recorded yet 
+// Creates a list of timestamped MedicineProvider-- filtered by user-- and returning a message string when no entries are present; but if there is a timestamp present; not if no timestamp has been recorded yet 
+
+const userFunction = () => {
+    if (filteredRxs.length === 0) {
+      return <p>No Timestamps Avaliable</p>;
+    } else {
+      return (
+        <>
+          {
+            Rxs.map(Rx => {
+            if (Rx.timestamp !== null) {                      
+            return <MedicineTimestamp key={Rx.id} Rx={Rx} {...props} />}
+        })
+          }
+        </>
+      )
+    }
+  }
     return (
         <>
         <div className="LastTakenMedicineList">
@@ -16,10 +34,8 @@ export default (props) => {
             </div>    
             <div className="LastTakenMeds">
                 {
-                    Rxs.map(Rx => {
-                        if (Rx.timestamp !== null) {                      
-                        return <MedicineTimestamp key={Rx.id} Rx={Rx} {...props} />}
-                    })
+                   userFunction()
+
                 }
             </div>
         </div>
