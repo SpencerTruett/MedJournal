@@ -44,12 +44,18 @@ export default ({ Rx, history }) => {
 
   function RenderRxs() {
       return <section className="medicines">
+        <div className="rx__info">
           <div className="Rx__name">{Rx.name}</div>
           <div className="Rx__dosage">{Rx.dosage}</div>
+        </div>
+        <div className="rx__directions">
           <div className="Rx__per">{Rx.per}</div> per 
           <div className="Rx__dayweekmonth">{Rx.dayweekmonth}</div> at
           <div className="Rx__time">{Rx.time}</div>
+        </div>
 
+          
+        <div className="rx__buttons">
 {/* Pushes to a unique url for the id on the Food to edit it; populates in the form */}
 
           <button onClick={() => {
@@ -68,7 +74,8 @@ export default ({ Rx, history }) => {
 
 {/* The actual checkbox  */}
           <label>Taken?</label> {checkbox()}
-          
+        </div>
+
         </section>
     }  
   return RenderRxs()

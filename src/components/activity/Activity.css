@@ -1,6 +1,6 @@
 .activity {
   display: flex;
-  background-color: grey;
+  background-color: #b3b3b3;
   justify-content: space-evenly;
   padding: .25em;
   margin: .25em 0;

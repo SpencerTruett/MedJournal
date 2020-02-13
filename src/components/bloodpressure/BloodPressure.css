@@ -1,6 +1,6 @@
-.blood-pressures {
+  .blood-pressures {
   display: flex;
-  background-color: grey;
+  background-color: #b3b3b3;
   justify-content: space-evenly;
   padding: .25em;
   margin: .25em 0;
@@ -9,4 +9,7 @@
 .BloodPressureReadings {
   height: 160px;
   overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
 }

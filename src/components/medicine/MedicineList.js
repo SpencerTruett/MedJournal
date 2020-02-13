@@ -6,7 +6,7 @@ import Medicine from "./Medicine"
 export default (props) => {
     const { Rxs } = useContext(MedicineContext)
     const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
-     const filteredRxs = Rxs.filter(Rx => Rx.userId === activeUserId) || []
+    const filteredRxs = Rxs.filter(Rx => Rx.userId === activeUserId) || []
 
 // This filters the full list of medicine based on if the checkbox is checked or not 
     const upcomingMedicine = Rxs.filter(Rx=>Rx.taken !==true)

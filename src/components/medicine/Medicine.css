@@ -1,6 +1,31 @@
 .medicines {
   display: flex;
-  background-color: grey;
+  flex-direction: column;
+  background-color: #b3b3b3;
+  justify-content: space-evenly;
+  padding: .25em;
+  margin: .25em 0;
+}
+
+.rx__info {
+  display: flex;
+  flex-direction: row;
+}
+
+.rx__directions {
+  display: flex;
+  flex-direction: row;
+}
+
+.rx__buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.medicines__timestamp {
+  display: flex;
+  flex-direction: row;
+  background-color: #b3b3b3;
   justify-content: space-evenly;
   padding: .25em;
   margin: .25em 0;

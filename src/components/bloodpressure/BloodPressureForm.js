@@ -93,7 +93,7 @@ export default props => {
                     bp.preventDefault()
                     createNewBP()
                     }}
-                className="btn btn-primary">
+                className="btn btn-primary ">
                 {editMode ? "Save Update" : "Record"}
             </button>
 

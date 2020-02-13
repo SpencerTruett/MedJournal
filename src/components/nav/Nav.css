@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-evenly;
   background-color: #0C479D;
-  margin-right: -12px;
+  margin-right: -13px;
   margin-left: -12px;
   margin-top: -10px;
   padding: 2rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .navbar__link {
