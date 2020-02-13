@@ -5,9 +5,26 @@ import "./Food.css"
 
 export default (props) => {
     const { Foods } = useContext(FoodContext)
-    // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+    const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+    const filteredFoods = Foods.filter(Food => Food.userId === activeUserId) || []
 
-// Creates the list of all of the Food Journal Entries
+// Creates the list of all of the Food Journal Entries-- filtered by user-- and returning a message string when no entries are present
+
+const userFunction = () => {
+    if (filteredFoods.length === 0) {
+      return <p>No Entries Avaliable</p>;
+    } else {
+      return (
+        <>
+          {filteredFoods.map(Food => {
+                return <FoodComponent key={Food.id} Food={Food} {...props} />
+          })}
+        </>
+      )
+    }
+  }
+
+
     return (
         <>
         <div className="FoodList">
@@ -16,9 +33,8 @@ export default (props) => {
             </div>    
             <div className="FoodJournal">
                 {
-                    Foods.map(Food => {
-                        return <FoodComponent key={Food.id} Food={Food} {...props} />
-                    })
+                    userFunction() 
+                    
                 }
             </div>
         </div>

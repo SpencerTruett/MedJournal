@@ -5,9 +5,26 @@ import Activity from "./Activity"
 
 export default (props) => {
     const { Acts } = useContext(ActivityContext)
-    // const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+    const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+    const filteredActs = Acts.filter(Act => Act.userId === activeUserId) || []
 
-// Creates the list of all of the Activity Recordings
+// Creates the list of all of the Activity Recordings-- filtered by user-- and returning a message string when no entries are present
+
+const userFunction = () => {
+    if (filteredActs.length === 0) {
+      return <p>No Recordings Avaliable</p>;
+    } else {
+      return (
+        <>
+          {filteredActs.map(Act => {
+                return <Activity key={Act.id} Act={Act} {...props} />
+          })}
+        </>
+      )
+    }
+  }
+
+
     return (
         <>
         <div className="ActivityList">
@@ -16,9 +33,8 @@ export default (props) => {
             </div>    
             <div className="ActivityReadings">
                 {
-                    Acts.map(Act => {
-                        return <Activity key={Act.id} Act={Act} {...props} />
-                    })
+                  userFunction()
+
                 }
             </div>
         </div>
