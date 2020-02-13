@@ -1,0 +1,7 @@
+.medicines {
+  display: flex;
+  background-color: grey;
+  justify-content: space-evenly;
+  padding: .25em;
+  margin: .25em 0;
+}

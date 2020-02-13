@@ -18,7 +18,7 @@ export default (props) => {
             <div>
                 <h1>The Entry You Are Viewing</h1>
             </div>    
-            <div className="FoodJournal">
+            <div className="FoodDetailList">
                 {
                     sortedFoods.map(Food => {
                         return <FoodDetails key={Food.id} Food={Food} {...props} />

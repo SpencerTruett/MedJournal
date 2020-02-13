@@ -24,7 +24,7 @@ import MedicineList from "./medicine/MedicineList";
 import MedicineForm from "./medicine/MedicineForm";
 import MedicineTimestampList from "./medicine/MedicineTimestampList";
 import FoodDetailsList from "./food/FoodDetailsList";
-
+import "./ApplicationViews.css"
 
 
 export default (props) => {
@@ -38,29 +38,35 @@ export default (props) => {
                   <MedicineProvider>
 {/* The Buttons on the Home Page that link to the 6 main views */}
                     <Route exact path= "/" ><div className="pageButtons">
-                    <div>
-                        <button onClick={() => props.history.push("/bloodPressure")}>
-                            Blood Pressure
+                    <div className="HomeButtons"> 
+                        <button className="HomeButton" onClick={() => props.history.push("/bloodPressure")}>
+                            <div className="buttonText">Blood Pressure</div>
+                            <img className="icon" src={require ('./icons/bloodPressure.gif')} />
                         </button>
                         
-                        <button onClick={() => props.history.push("/bloodGlucose")}>
-                            Blood Sugar
+                        <button className="HomeButton" onClick={() => props.history.push("/bloodGlucose")}>
+                            <div>Blood Sugar</div>
+                            <img className="icon" src={require ('./icons/bloodSugar.gif')} />
                         </button>
                         
-                        <button onClick={() => props.history.push("/weightTracker")}>
-                            Weight Tracker
+                        <button className="HomeButton" onClick={() => props.history.push("/weightTracker")}>
+                            <div>Weight Tracker</div>
+                            <img className="icon" src={require ('./icons/Weight.gif')} />
                         </button>
                         
-                        <button onClick={() => props.history.push("/activityLog")}>
-                            Exercise Log
+                        <button className="HomeButton" onClick={() => props.history.push("/activityLog")}>
+                            <div>Exercise Log</div>
+                            <img className="icon" src={require ('./icons/exercise.gif')} />
                         </button>
                         
-                        <button onClick={() => props.history.push("/foodJournal")}>
-                            Food Journal
+                        <button className="HomeButton" onClick={() => props.history.push("/foodJournal")}>
+                            <div>Food Journal</div>
+                            <img className="icon" src={require ('./icons/food.gif')} />
                         </button>
                         
-                        <button onClick={() => props.history.push("/medicineLog")}>
-                            Madicine Log
+                        <button className="HomeButton" onClick={() => props.history.push("/medicineLog")}>
+                            <div>Medicine Log</div>
+                            <img className="icon" src={require ('./icons/Medicine.gif')} />
                         </button>
                         
                     </div>    

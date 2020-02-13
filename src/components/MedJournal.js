@@ -5,6 +5,8 @@ import NavBar from "./nav/NavBar"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
 
+
+// The routs for the nav bar and application views in the app; also holds the login and register pages 
 export default () => (
     <>
         <Route render={() => {
