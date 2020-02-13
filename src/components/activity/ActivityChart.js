@@ -5,15 +5,17 @@ import { ActivityContext } from "./ActivityProvider";
 export default () => {
 
   const { Acts } = useContext(ActivityContext)
+  const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+  const filteredActs = Acts.filter(Act => Act.userId === activeUserId) || []
   
 // Pusing to an array all of the minutes recorded by the form 
   let activityReadings = []
-  Acts.forEach(activity => {activityReadings.push(activity.minutes)})
+  filteredActs.forEach(activity => {activityReadings.push(activity.minutes)})
   // console.log(activityReadings)
 
 // Pushing to an array all of the dates that the activity minutes were recorded
   let datesTaken = []
-  Acts.forEach(activity => {
+  filteredActs.forEach(activity => {
     let formattedDate = new Date(activity.timestamp).toLocaleDateString('en-US')
     datesTaken.push(formattedDate)
 })

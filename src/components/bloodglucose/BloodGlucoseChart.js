@@ -5,15 +5,17 @@ import { BloodGlucoseContext } from "./BloodGlucoseProvider";
 export default () => {
 
   const { BGs } = useContext(BloodGlucoseContext)
+  const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+  const filteredBGs = BGs.filter(BP => BP.userId === activeUserId) || []
   
 // Pusing to an array all of the glucose readings recorded by the form 
   let glucoseReadings = []
-  BGs.forEach(bloodGlucose => {glucoseReadings.push(bloodGlucose.glucose)})
+  filteredBGs.forEach(bloodGlucose => {glucoseReadings.push(bloodGlucose.glucose)})
   // console.log(glucoseReadings)
 
 // Pushing to an array all of the dates that the glucose readings were recorded
   let datesTaken = []
-  BGs.forEach(bloodGlucose => {
+  filteredBGs.forEach(bloodGlucose => {
     let formattedDate = new Date(bloodGlucose.timestamp).toLocaleDateString('en-US')
     datesTaken.push(formattedDate)
 })

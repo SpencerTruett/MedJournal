@@ -5,20 +5,22 @@ import { BloodPressureContext } from "./BloodPressureProvider";
 export default () => {
 
   const { BPs } = useContext(BloodPressureContext)
+  const activeUserId = parseInt(localStorage.getItem("activeUser"), 10)
+  const filteredBPs = BPs.filter(BP => BP.userId === activeUserId) || []
   
 // Pusing to an array all of the systolic readings recorded by the form 
   let systolicReadings = []
-  BPs.forEach(bloodPressure => {systolicReadings.push(bloodPressure.systolic)})
+  filteredBPs.forEach(bloodPressure => {systolicReadings.push(bloodPressure.systolic)})
   // console.log(systolicReadings)
 
 // Pusing to an array all of the diastolic readings recorded by the form 
   let diastolicReadings = []
-  BPs.forEach(bloodPressure => {diastolicReadings.push(bloodPressure.diastolic)})
+  filteredBPs.forEach(bloodPressure => {diastolicReadings.push(bloodPressure.diastolic)})
   // console.log(diastolicReadings)
 
 // Pushing to an array all of the dates that the glucose readings were recorded
   let datesTaken = []
-  BPs.forEach(bloodPressure => {
+  filteredBPs.forEach(bloodPressure => {
     let formattedDate = new Date(bloodPressure.timestamp).toLocaleDateString('en-US')
     datesTaken.push(formattedDate)
 })
