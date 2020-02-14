@@ -9,4 +9,8 @@
 .WeightReadings {
   height: 160px;
   overflow: scroll;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  border-style: inset;
+  border-color: #b3b3b3;
 }

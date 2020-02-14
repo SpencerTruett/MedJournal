@@ -45,13 +45,10 @@ export default ({ Rx, history }) => {
   function RenderRxs() {
       return <section className="medicines">
         <div className="rx__info">
-          <div className="Rx__name">{Rx.name}</div>
-          <div className="Rx__dosage">{Rx.dosage}</div>
+          <div className="Rx__name rx__item">{Rx.name}: {Rx.dosage}</div>
         </div>
         <div className="rx__directions">
-          <div className="Rx__per">{Rx.per}</div> per 
-          <div className="Rx__dayweekmonth">{Rx.dayweekmonth}</div> at
-          <div className="Rx__time">{Rx.time}</div>
+          <div className="Rx__per rx__item">{Rx.per} per {Rx.dayweekmonth} at {Rx.time}</div>
         </div>
 
           

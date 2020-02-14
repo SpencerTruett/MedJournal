@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
 import { BloodPressureContext } from "./BloodPressureProvider"
-import { notDeepEqual } from "assert"
 
 export default props => {
     const { BPs, addBP,  updateBP } = useContext(BloodPressureContext)

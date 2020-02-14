@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
-// import "./Login.css"
+import "./Login.css"
 
 
 const Login = props => {
@@ -8,6 +8,11 @@ const Login = props => {
     const password = useRef()
     const firstName = useRef()
     const lastName = useRef()
+
+if (localStorage.getItem("activeUser") === null) {
+    document.body.classList.add("logInBackground");
+    }
+    
 
     const existingUserCheck = () => {
         return fetch(`http://localhost:8088/users?email=${email.current.value}`)
@@ -27,6 +32,7 @@ const Login = props => {
             .then(exists => {
                 if (exists && exists.password === password.current.value) {
                     localStorage.setItem("activeUser", exists.id)
+                    document.body.classList.remove("logInBackground")
                     props.history.push("/")
                 } else if (exists && exists.password !== password.current.value) {
                     window.alert("Password does not match")
