@@ -1,0 +1,8 @@
+.logInBackground {
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:-10%;
+  background-color: #3366ff;
+}
