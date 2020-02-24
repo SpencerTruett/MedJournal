@@ -1,68 +1,114 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MedJournal: A Personal Healthcare Tracker App
 
-## Available Scripts
+![Screencap of the project](src/imgs/screenshot.png)
 
-In the project directory, you can run:
+## Project Description
 
-### `npm start`
+dJournal is a mobile-focused web application designed for users to easily access and log medical details in one convenient location. The app utilizes a variety of easy-to-use forms to record health data which is then dynamically populated on the chart below to provide a detailed overview of past recordings. All recordings can be edited and deleted from the list, dynamically effecting the chart as well. All charts can be viewed in the "Profile View" to give an overview of one's health to provide to a healthcare professional. The app also includes a Food Journal to record detailed information about meals and potential allergens. There is also a medication tracker to track if a medication has been taken for a given day. A timestamp is recorded when taken to provide the last time a medication was taken for a healthcare professional. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Technologies used include React and Chart.js.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Instructions
 
-### `npm test`
+1. Clone this repository
+1. `cd` into the directory it creates
+1. Install the necessary packages with the following: 
+  * npm install
+  * npm i --save react-router-dom
+  * npm install --save react-chartjs-2 chart.js
+1. Make an `api` directory and touch `database.json`
+1. Copy & paste sample api below into database
+1. Run `json-server -w database.json -p 8088` from the `api` directory
+1. In a separate terminal, `cd` into the `src` directory
+1. npm start
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Sample Api
 
-### `npm run build`
+### users
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+  {
+    "id": 1,
+    "email": "me@me.com",
+    "password": "123",
+    "firstName": "First",
+    "lastName": "Last"
+  }
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### bloodPressure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+  {
+    "id": 1,
+    "systolic": 122,
+    "diastolic": 80,
+    "timestamp": 1579312120134,
+    "userId": 1
+  }
+```
 
-### `npm run eject`
+### bloodGlucose
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+  {
+    "id": 1,
+    "glucose": 100,
+    "timestamp": 1579312120634,
+    "userId": 1
+  }
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### weight
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+  {
+    "id": 1,
+    "weight": "181",
+    "timestamp": 1579640023071,
+    "userId": 1
+  }
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### activity
 
-## Learn More
+```
+  {
+    "id": 1,
+    "userId": 1,
+    "minutes": 90,
+    "timestamp": 1579640023071
+  }
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### food
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+  {
+    "id": 1,
+    "meal": "Breakfast",
+    "datetime": "2020-02-23T08:00",
+    "notes": "Sausage, Eggs, Orange Juice",
+    "userId": 1
+  }
+```
 
-### Code Splitting
+### medicine
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+  {
+    "id": 1,
+    "userId": 1,
+    "name": "Levothyroxine",
+    "dosage": "1.6 mccg/kg orally",
+    "per": 1,
+    "dayweekmonth": "day",
+    "time": "16:00",
+    "taken": false,
+    "timestamp": 1581711412136
+  }
+```
 
-### Analyzing the Bundle Size
+## Author
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* **Spencer Truett** - (https://github.com/SpencerTruett)
