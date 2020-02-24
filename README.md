@@ -1,6 +1,6 @@
 # MedJournal: A Personal Healthcare Tracker App
 
-![Screencap of the project](src/imgs/screenshot.png)
+![Screencap of the project](src/components/imgs/screenshot.png)
 
 ## Project Description
 
