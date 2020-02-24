@@ -47,7 +47,7 @@ export const FoodProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        // console.log(Foods)
+        
     }, [Foods])
 
     return (

@@ -24,8 +24,7 @@ export default props => {
             const ActId = parseInt(props.match.params.ActId)
             const selectedAct = Acts.find(e => e.id === ActId) || {}
             setAct(selectedAct)
-            // console.log("Act", selectedAct)
-        }
+            }
         else {
             setAct({minutes : ""})
         }

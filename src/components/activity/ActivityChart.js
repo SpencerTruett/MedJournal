@@ -11,16 +11,14 @@ export default () => {
 // Pusing to an array all of the minutes recorded by the form 
   let activityReadings = []
   filteredActs.forEach(activity => {activityReadings.push(activity.minutes)})
-  // console.log(activityReadings)
-
+  
 // Pushing to an array all of the dates that the activity minutes were recorded
   let datesTaken = []
   filteredActs.forEach(activity => {
     let formattedDate = new Date(activity.timestamp).toLocaleDateString('en-US')
     datesTaken.push(formattedDate)
 })
-  // console.log(datesTaken)
-
+  
 // Plugging in my two new arrays into the labels and data areas of the chart
     const data = {
         labels: datesTaken,

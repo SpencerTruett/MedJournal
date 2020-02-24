@@ -5,8 +5,7 @@ import "./Food.css"
 export default ({ Food, history }) => {
 
   const { deleteFood } = useContext(FoodContext)
-  // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
-
+  
 
 // The Food Deatils Card that shows both the meal, the date and time, and the notes; the notes is different from the other page; you reach this card from the view button
   function RenderFoods() {

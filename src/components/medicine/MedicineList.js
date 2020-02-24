@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import "./Medicine.css"
-import { MedicineContext, MedicineProvider } from "./MedicineProvider"
+import { MedicineContext} from "./MedicineProvider"
 import Medicine from "./Medicine"
 
 export default (props) => {

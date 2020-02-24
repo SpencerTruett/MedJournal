@@ -46,8 +46,7 @@ export const UserProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log(users)
-    }, [users])
+        }, [users])
 
     return (
         <UserContext.Provider value={{

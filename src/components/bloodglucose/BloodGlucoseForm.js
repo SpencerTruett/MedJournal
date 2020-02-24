@@ -24,8 +24,7 @@ export default props => {
             const BGId = parseInt(props.match.params.BGId)
             const selectedBG = BGs.find(e => e.id === BGId) || {}
             setBG(selectedBG)
-            // console.log("BG", selectedBG)
-        }
+            }
         else {
             setBG({glucose : ""})
         }

@@ -5,8 +5,7 @@ import "./Medicine.css"
 export default ({ Rx, history }) => {
 
   const { deleteRx, patchRx } = useContext(MedicineContext)
-  // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
-
+  
 
   // This code is responsible for changing the boolean value from true to false which allows it to render in the two lists; This also adds a timestamp of Date.now when the checkbox is checked to true
   const checkbox = ()=>{

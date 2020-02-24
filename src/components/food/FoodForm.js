@@ -12,15 +12,13 @@ export default props => {
         setFood({meal : "", datetime: "", notes: ""})
     }
     const editMode = props.location.pathname.includes("edit")
-    // console.log(props)
-
+    
     const handleControlledInputChange = (e) => {
         
         const newFood = Object.assign({}, Food)
         newFood[e.target.id] = e.target.value
         setFood(newFood)
-        console.log(newFood, "newfood");
-        
+                
     }
 
 // Using "Breakfast" in the setFood of the else allows for the initial value of the dropdown to be correct
@@ -29,8 +27,7 @@ export default props => {
             const FoodId = parseInt(props.match.params.FoodId)
             const selectedFood = Foods.find(e => e.id === FoodId) || {}
             setFood(selectedFood)
-            console.log("Food", selectedFood)
-        }
+                    }
         else {
             setFood({meal : "Breakfast", datetime: "", notes: ""})
         }

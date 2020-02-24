@@ -47,8 +47,7 @@ export const BloodPressureProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        // console.log(BPs)
-    }, [BPs])
+        }, [BPs])
 
     return (
         <BloodPressureContext.Provider value={{
