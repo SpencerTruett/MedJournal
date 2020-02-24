@@ -24,7 +24,7 @@ export default props => {
             const BPId = parseInt(props.match.params.BPId)
             const selectedBP = BPs.find(e => e.id === BPId) || {}
             setBP(selectedBP)
-            // console.log("bp", selectedBP)
+            
         }
         else {
             setBP({systolic : "", diastolic: ""})

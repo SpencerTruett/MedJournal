@@ -5,8 +5,7 @@ import "./Activity.css"
 export default ({ Act, history }) => {
 
   const { deleteAct } = useContext(ActivityContext)
-  // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
-
+  
 
 // The Activity Card that shows both the minutes of activity, date, and time
   function RenderActs() {

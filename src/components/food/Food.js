@@ -5,8 +5,7 @@ import "./Food.css"
 export default ({ Food, history }) => {
 
   const { deleteFood } = useContext(FoodContext)
-  // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
-
+  
 // The Food Journal Card that shows both the meal and the date and time selected
 
   function RenderFoods() {

@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from "react"
 import { MedicineContext } from "./MedicineProvider"
-// import {DateInputComponent, DateFormats } from "react-controlled-date-input"
 
 export default props => {
     const { Rxs, addRx,  updateRx } = useContext(MedicineContext)
@@ -25,8 +24,7 @@ export default props => {
             const RxId = parseInt(props.match.params.RxId)
             const selectedRx = Rxs.find(e => e.id === RxId) || {}
             setRx(selectedRx)
-            // console.log("Rx", selectedRx)
-        }
+            }
         else {
             setRx({name : "", dosage: "", per: "", dayweekmonth: "Day", time: "", timestamp: null})
         }

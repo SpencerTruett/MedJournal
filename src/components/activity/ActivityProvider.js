@@ -48,8 +48,7 @@ export const ActivityProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        // console.log(Acts)
-    }, [Acts])
+        }, [Acts])
 
     return (
         <ActivityContext.Provider value={{

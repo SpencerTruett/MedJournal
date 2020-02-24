@@ -11,16 +11,14 @@ export default () => {
 // Pusing to an array all of the weights recorded by the form 
   let weightReadings = []
   filteredWts.forEach(weight => {weightReadings.push(weight.weight)})
-  // console.log(weightReadings)
-
+  
 // Pushing to an array all of the dates that the glucose readings were recorded
   let datesTaken = []
   filteredWts.forEach(weight => {
     let formattedDate = new Date(weight.timestamp).toLocaleDateString('en-US')
     datesTaken.push(formattedDate)
 })
-  // console.log(datesTaken)
-
+  
 // Plugging in my two new arrays into the labels and data areas of the chart
     const data = {
         labels: datesTaken,

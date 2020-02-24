@@ -5,8 +5,7 @@ import "./BloodGlucose.css"
 export default ({ BG, history }) => {
 
   const { deleteBG } = useContext(BloodGlucoseContext)
-  // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
-
+  
 
 // The Blood Glucose Card that shows both the glucose reading, date, and time
   function RenderBGs() {

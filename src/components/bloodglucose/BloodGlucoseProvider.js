@@ -47,7 +47,7 @@ export const BloodGlucoseProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        // console.log(BGs)
+        
     }, [BGs])
 
     return (

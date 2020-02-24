@@ -5,7 +5,7 @@ import "./BloodPressure.css"
 export default ({ BP, history }) => {
 
   const { deleteBP } = useContext(BloodPressureContext)
-  // const loggedInUserId = parseInt(localStorage.getItem("activeUser"))
+  
 
 
 // The Blood Pressure Card that shows both the systolic reading, diastolic reading, date, and time

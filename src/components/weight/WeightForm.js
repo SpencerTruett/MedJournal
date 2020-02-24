@@ -24,8 +24,7 @@ export default props => {
             const WtId = parseInt(props.match.params.WtId)
             const selectedWt = Wts.find(e => e.id === WtId) || {}
             setWt(selectedWt)
-            // console.log("Wt", selectedWt)
-        }
+            }
         else {
             setWt({weight : ""})
         }
