@@ -4,7 +4,7 @@
 
 ## Project Description
 
-dJournal is a mobile-focused web application designed for users to easily access and log medical details in one convenient location. The app utilizes a variety of easy-to-use forms to record health data which is then dynamically populated on the chart below to provide a detailed overview of past recordings. All recordings can be edited and deleted from the list, dynamically effecting the chart as well. All charts can be viewed in the "Profile View" to give an overview of one's health to provide to a healthcare professional. The app also includes a Food Journal to record detailed information about meals and potential allergens. There is also a medication tracker to track if a medication has been taken for a given day. A timestamp is recorded when taken to provide the last time a medication was taken for a healthcare professional. 
+MeddJournal is a mobile-focused web application designed for users to easily access and log medical details in one convenient location. The app utilizes a variety of easy-to-use forms to record health data which is then dynamically populated on the chart below to provide a detailed overview of past recordings. All recordings can be edited and deleted from the list, dynamically effecting the chart as well. All charts can be viewed in the "Profile View" to give an overview of one's health to provide to a healthcare professional. The app also includes a Food Journal to record detailed information about meals and potential allergens. There is also a medication tracker to track if a medication has been taken for a given day. A timestamp is recorded when taken to provide the last time a medication was taken for a healthcare professional. 
 
 Technologies used include React and Chart.js.
 
