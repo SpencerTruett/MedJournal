@@ -18,8 +18,7 @@ export default ({ Food, history }) => {
             history.push(`/foodJournal/view/${Food.id}`)
           }}>View</button>
 
-          <div className="food__meal">{Food.meal}</div>
-          <div className="food__datetime">{Food.datetime}</div>
+          <div className="food__meal">{Food.meal} {Food.datetime}</div>
           {/* <div className="food__notes">{Food.notes}</div> */}
 
 {/* Pushes to a unique url for the id on the Food to edit it; populates in the form */}

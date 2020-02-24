@@ -11,9 +11,7 @@ export default ({ BG, history }) => {
 // The Blood Glucose Card that shows both the glucose reading, date, and time
   function RenderBGs() {
       return <section className="blood-glucoses">
-          <div className="bg__glucose">{BG.glucose}</div> on
-          <div className="bg_date">{new Date(BG.timestamp).toLocaleDateString('en-US')}</div> at 
-          <div className="bg__time">{new Date(BG.timestamp).toLocaleTimeString('en-US')}</div>
+          <div className="bg__glucose">{BG.glucose} on {new Date(BG.timestamp).toLocaleDateString('en-US')} at {new Date(BG.timestamp).toLocaleTimeString('en-US')}</div>
 
 {/* Pushes to a unique url for the id on the Blood Glucose to edit it; populates in the form */}
 
