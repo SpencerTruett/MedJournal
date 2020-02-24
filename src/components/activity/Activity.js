@@ -11,9 +11,7 @@ export default ({ Act, history }) => {
 // The Activity Card that shows both the minutes of activity, date, and time
   function RenderActs() {
       return <section className="activity">
-          <div className="act__minutes">{Act.minutes}</div> mins. on
-          <div className="act_date">{new Date(Act.timestamp).toLocaleDateString('en-US')}</div> at
-          <div className="act__time">{new Date(Act.timestamp).toLocaleTimeString('en-US')}</div>
+          <div className="act__minutes">{Act.minutes} mins. on {new Date(Act.timestamp).toLocaleDateString('en-US')} at {new Date(Act.timestamp).toLocaleTimeString('en-US')}</div>
 
 {/* Pushes to a unique url for the id on the Activity to edit it; populates in the form */}
 
